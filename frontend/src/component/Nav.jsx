@@ -368,7 +368,7 @@ function Nav() {
               className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
               onClick={() => { navigate("/about"); setShowProfile(false) }}
             >
-              ABOUT CALY COURTURE
+              ABOUT ZOYA ELEGANCE
             </button>
             <button
               className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
