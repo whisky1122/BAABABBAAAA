@@ -234,11 +234,10 @@ function Nav() {
             </button>
           </div>
 
-          {/* Center Logo - EXACT GUCCI Style */}
-          <div className='absolute left-1/2 transform -translate-x-1/2 cursor-pointer' onClick={() => navigate("/")}>
-            <h1 className={`font-normal tracking-[0.2em] text-black transition-all duration-300 ${scrolled ? 'text-xl' : 'text-3xl'
-              }`}>
-              ZoyaElegance
+          {/* Center Logo - responsive */}
+          <div className='w-full flex justify-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2 cursor-pointer' onClick={() => navigate("/")}>
+            <h1 className={`font-normal text-black transition-all duration-300 leading-none whitespace-nowrap ${scrolled ? 'text-xl md:text-xl md:tracking-wide tracking-normal' : 'text-2xl md:text-3xl md:tracking-wide tracking-normal'}`}>
+              Zoya Elegance
             </h1>
           </div>
 
