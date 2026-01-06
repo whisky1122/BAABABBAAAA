@@ -71,7 +71,7 @@ function Nav() {
         }`}>
 
         {/* GUCCI Navigation Container */}
-        <div className='h-full flex items-center justify-between px-6 lg:px-12 max-w-none'>
+        <div className='relative h-full flex items-center justify-between px-6 lg:px-12 max-w-none'>
 
           {/* Left Side Menu */}
           <div className='flex items-center space-x-8'>
@@ -234,9 +234,9 @@ function Nav() {
             </button>
           </div>
 
-          {/* Center Logo - responsive */}
-          <div className='w-full flex justify-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2 cursor-pointer' onClick={() => navigate("/")}>
-            <h1 className={`font-normal text-black transition-all duration-300 leading-none whitespace-nowrap ${scrolled ? 'text-xl md:text-xl md:tracking-wide tracking-normal' : 'text-2xl md:text-3xl md:tracking-wide tracking-normal'}`}>
+          {/* Center Logo - absolute centered */}
+          <div className='absolute left-1/2 transform -translate-x-1/2 inset-y-0 flex items-center cursor-pointer' onClick={() => navigate("/")}>
+            <h1 className={`font-normal text-black transition-all duration-300 leading-none whitespace-nowrap ${scrolled ? 'text-xl md:text-xl tracking-[0.12em]' : 'text-2xl md:text-3xl tracking-[0.12em] md:tracking-[0.18em]'}`}>
               Zoya Elegance
             </h1>
           </div>
