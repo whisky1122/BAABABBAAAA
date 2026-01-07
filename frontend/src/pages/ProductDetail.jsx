@@ -230,7 +230,7 @@ function ProductDetail() {
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='bg-white border border-stone-200 rounded-lg p-8 max-w-4xl mx-auto'>
             <p className='text-gray-700 font-light leading-relaxed text-lg text-center'>
-              Upgrade your wardrobe with this stylish slim-fit cotton shirt, available now on Caly Courture. 
+              Upgrade your wardrobe with this stylish slim-fit cotton shirt, available now on ZOYA ELEGANCE. 
               Crafted from breathable, high-quality fabric, it offers all-day comfort and effortless style. 
               Easy to maintain and perfect for any setting, this shirt is a must-have essential for those 
               who value both fashion and function.

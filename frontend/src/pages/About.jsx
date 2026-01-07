@@ -14,7 +14,7 @@ function About() {
             Our Story
           </span>
           <h1 className='text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
-            ABOUT CALY COURTURE
+            ABOUT ZOYA ELEGANCE
           </h1>
           <div className='flex items-center justify-center mb-6'>
             <div className='w-8 h-px bg-white'></div>
@@ -37,7 +37,7 @@ function About() {
               <div className='bg-stone-100 p-8 border border-stone-200'>
                 <img 
                   src={about} 
-                  alt="About CALY COURTURE" 
+                  alt="About ZOYA ELEGANCE" 
                   className='w-full max-h-[500px] object-contain'
                 />
               </div>
@@ -50,10 +50,10 @@ function About() {
                   Our Heritage
                 </h2>
                 <p className='text-lg font-light text-gray-700 leading-relaxed mb-6'>
-                  CALY COURTURE was born from a vision of smart, seamless shopping - created to deliver quality products, trending styles, and everyday essentials in one distinguished place.
+                  ZOYA ELEGANCE was born from a vision of smart, seamless shopping - created to deliver quality products, trending styles, and everyday essentials in one distinguished place.
                 </p>
                 <p className='text-lg font-light text-gray-700 leading-relaxed'>
-                  With reliable service, fast delivery, and exceptional value, CALY COURTURE transforms your online shopping experience into something simple, satisfying, and stress-free.
+                  With reliable service, fast delivery, and exceptional value, ZOYA ELEGANCE transforms your online shopping experience into something simple, satisfying, and stress-free.
                 </p>
               </div>
               
@@ -62,7 +62,7 @@ function About() {
                   Our Mission
                 </h3>
                 <p className='text-lg font-light text-gray-700 leading-relaxed'>
-                  Our mission is to redefine online shopping by delivering quality, affordability, and convenience. CALY COURTURE connects customers with trusted products and brands, offering a seamless, customer-focused experience.
+                  Our mission is to redefine online shopping by delivering quality, affordability, and convenience. ZOYA ELEGANCE connects customers with trusted products and brands, offering a seamless, customer-focused experience.
                 </p>
               </div>
             </div>

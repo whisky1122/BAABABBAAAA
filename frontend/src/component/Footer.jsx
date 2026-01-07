@@ -96,7 +96,7 @@ function Footer() {
           <div className='gucci-footer-bottom-content'>
             <div className='gucci-copyright'>
               <p className='gucci-copyright-text'>
-                © 2025 CALY COUTURE
+                © 2025 ZOYA ELEGANCE
               </p>
             </div>
             <div className='gucci-legal-links'>

@@ -61,7 +61,7 @@ function NewLetterBox() {
           <div className='py-8'>
             <div className='text-6xl mb-6'>✓</div>
             <h3 className='text-2xl font-light text-white mb-4'>
-              Welcome to CALY COURTURE
+              Welcome to ZOYA ELEGANCE
             </h3>
             <p className='text-lg text-gray-300'>
               Thank you for subscribing! Your 20% discount code is on its way to your inbox.

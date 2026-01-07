@@ -74,15 +74,14 @@ function Nav() {
         <div className='h-full flex items-center justify-between px-6 lg:px-12 max-w-none'>
 
           {/* Left Side Menu */}
-          <div className='flex items-center space-x-8'>
-
+          <div className='flex items-center space-x-4 md:space-x-8 z-10'>
             {/* Main Menu Button */}
             <div className='relative menu-container'>
               <button
-                className='text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
+                className='text-[10px] md:text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200 whitespace-nowrap'
                 onClick={() => setShowMainMenu(prev => !prev)}
               >
-                MAIN MENU
+                MENU
               </button>
 
               {/* Main Menu Dropdown */}
@@ -234,43 +233,31 @@ function Nav() {
             </button>
           </div>
 
-          {/* Center Logo - EXACT GUCCI Style */}
-          <div className='absolute left-1/2 transform -translate-x-1/2 cursor-pointer' onClick={() => navigate("/")}>
-            <h1 className={`font-normal tracking-[0.2em] text-black transition-all duration-300 ${scrolled ? 'text-xl' : 'text-3xl'
-              }`}>
-              ZoyaElegance
+          {/* Center Logo - Responsive Centering */}
+          <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer text-center w-full max-w-[200px] md:max-w-none px-2' onClick={() => navigate("/")}>
+            <h1 className={`font-serif font-normal tracking-[0.2em] text-black transition-all duration-300 leading-tight ${scrolled ? 'text-lg md:text-xl' : 'text-xl md:text-3xl'}`}>
+              ZOYA ELEGANCE
             </h1>
           </div>
 
           {/* Right Side Menu */}
-          <div className='flex items-center space-x-8'>
-
+          <div className='flex items-center space-x-3 md:space-x-8 z-10'>
             {/* Search */}
             <button
-              className='text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
+              className='hidden md:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
               onClick={() => { setShowSearch(prev => !prev); navigate("/collection") }}
             >
               SEARCH
             </button>
 
-            {/* Account */}
-            <div className='relative menu-container'>
-              <button
-                className='text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-                onClick={() => setShowProfile(prev => !prev)}
-              >
-                YOUR ACCOUNT
-              </button>
-            </div>
-
             {/* Bag with Counter */}
             <button
-              className='text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200 relative'
+              className='text-[10px] md:text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200 relative whitespace-nowrap'
               onClick={() => navigate("/cart")}
             >
-              YOUR BAG
+              BAG
               {getCartCount() > 0 && (
-                <span className='absolute -top-2 -right-2 w-5 h-5 bg-black text-white text-xs flex items-center justify-center font-normal'>
+                <span className='absolute -top-2 -right-2 w-4 h-4 md:w-5 md:h-5 bg-black text-white text-[10px] md:text-xs flex items-center justify-center font-normal'>
                   {getCartCount()}
                 </span>
               )}
@@ -369,7 +356,7 @@ function Nav() {
               className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
               onClick={() => { navigate("/about"); setShowProfile(false) }}
             >
-              ABOUT CALY COURTURE
+              ABOUT ZOYA ELEGANCE
             </button>
             <button
               className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'

@@ -79,7 +79,7 @@ function Background({ heroCount }) {
             {/* GUCCI Brand Loading */}
             <div className='mb-8'>
               <h1 className='text-2xl font-normal tracking-[0.2em] text-black mb-4'>
-                CALY COURTURE
+                ZOYA ELEGANCE
               </h1>
             </div>
             
@@ -107,7 +107,7 @@ function Background({ heroCount }) {
       {hasError && imagesLoaded && (
         <div className='absolute inset-0 bg-white flex items-center justify-center'>
           <div className='text-black text-center'>
-            <h2 className='text-2xl font-normal mb-4 tracking-[0.2em]'>CALY COURTURE</h2>
+            <h2 className='text-2xl font-normal mb-4 tracking-[0.2em]'>ZOYA ELEGANCE</h2>
             <p className='text-base font-light text-gray-600'>Images unavailable</p>
           </div>
         </div>

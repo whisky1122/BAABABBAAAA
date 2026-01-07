@@ -57,9 +57,8 @@ function Login() {
       if (result.data) {
         getCurrentUser();
         console.log("Navigating to home...");
-        navigate("/");
-        // Force reload if navigation is stuck
-        window.location.href = "/";
+        // Use a faster navigation method
+        window.location.assign("/");
       }
     } catch (error) {
       console.error("Google Login Error:", error);
@@ -84,7 +83,7 @@ function Login() {
             </div>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <h1 className='text-2xl font-light tracking-wide text-black group-hover:text-gray-700 transition-colors duration-300'>
-              CALY COURTURE
+              ZOYA ELEGANCE
             </h1>
           </div>
         </div>

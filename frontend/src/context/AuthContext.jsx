@@ -2,7 +2,7 @@ import React from 'react'
 import { createContext } from 'react'
 export const authDataContext= createContext()
 function AuthContext({children}) {
-    let serverUrl = "https://backend-wuvd.onrender.com"
+    let serverUrl = import.meta.env.VITE_BACKEND_URL || "https://baababbaaaa.onrender.com"
 
     let value = {
        serverUrl

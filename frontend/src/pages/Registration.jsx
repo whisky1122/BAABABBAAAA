@@ -83,7 +83,7 @@ function Registration() {
             </div>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <h1 className='text-2xl font-light tracking-wide text-black group-hover:text-gray-700 transition-colors duration-300'>
-              FROZELIA
+              ZOYA ELEGANCE
             </h1>
           </div>
         </div>
@@ -96,7 +96,7 @@ function Registration() {
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='text-center mb-12'>
             <h2 className='text-4xl font-extralight text-black mb-4 tracking-tight'>
-              Join FROZELIA
+              Join ZOYA ELEGANCE
             </h2>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <p className='text-lg font-light text-gray-600'>
