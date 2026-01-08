@@ -1,5 +1,5 @@
 // Sold Copy By Eliteblaze , dev: Prayag kaushik
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import logo from '../assets/logo.png'
 import { IoEyeOutline, IoEye } from "react-icons/io5"
 import axios from 'axios'
@@ -15,9 +15,16 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const { serverUrl } = useContext(authDataContext)
-  const { getAdmin } = useContext(adminDataContext)
+  const { getAdmin, adminData } = useContext(adminDataContext)
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
+
+  // Redirect when adminData is available
+  useEffect(() => {
+    if (adminData) {
+      navigate("/", { replace: true })
+    }
+  }, [adminData, navigate])
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   const AdminLogin = async (e) => {
@@ -30,7 +37,7 @@ function Login() {
       console.log(result.data)
       toast.success("Admin Login Successfully")
       await getAdmin()
-      navigate("/")
+      // Navigation will happen automatically via useEffect when adminData is set
     } catch (error) {
       console.log(error)
       toast.error("Admin Login Failed")
