@@ -212,21 +212,21 @@ function Nav() {
               )}
             </div>
 
-            {/* Direct Category Links */}
+            {/* Direct Category Links - Visible on all screens */}
             <button
-              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
+              className='text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
               onClick={() => handleCategoryClick('women')}
             >
               WOMEN
             </button>
             <button
-              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
+              className='text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
               onClick={() => handleCategoryClick('men')}
             >
               MEN
             </button>
             <button
-              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
+              className='text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
               onClick={() => handleCategoryClick('handbags')}
             >
               HANDBAGS

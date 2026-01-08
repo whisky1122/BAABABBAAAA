@@ -31,14 +31,14 @@ let location = useLocation()
         : (<Login/>)
           }/>
 
-        <Route path='/signup' 
+        <Route path='/register' 
         element={userData ? (<Navigate to={location.state?.from || "/"}/> ) 
         : (<Registration/>)}/>
-
+        
         <Route path='/' 
         element={userData ? <Home/> : <Navigate to="/login" state={{from: location.pathname}} /> }/>
-      
-        <Route path='/about' 
+               
+        <Route path='/about'
         element={userData ? <About/> : <Navigate to="/login" state={{from: location.pathname}} /> }/>
 
         <Route path='/collection' 
