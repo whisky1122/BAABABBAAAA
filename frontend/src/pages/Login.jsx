@@ -194,7 +194,7 @@ function Login() {
                 Don't have an account?{' '}
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <button 
-                  onClick={() => navigate("/register")}
+                  onClick={() => navigate("/signup")}
                   className='text-black hover:underline font-medium transition-all duration-300'
                 >
                   Create Account

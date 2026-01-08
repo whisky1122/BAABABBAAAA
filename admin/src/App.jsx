@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react'
-import { Route, Routes, useNavigate, useLocation } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Add from './pages/Add'
 import Lists from './pages/Lists'
@@ -10,19 +10,6 @@ import { adminDataContext } from './context/AdminContext'
 
 function App() {
   let {adminData} = useContext(adminDataContext)
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  // Redirect to home when admin logs in successfully
-  useEffect(() => {
-    if (adminData) {
-      // If admin is logged in and on login route, redirect to home
-      if (location.pathname === '/login') {
-        navigate('/', { replace: true })
-      }
-    }
-  }, [adminData, location.pathname, navigate])
-
   return (
 
     <>

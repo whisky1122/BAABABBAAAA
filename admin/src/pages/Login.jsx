@@ -15,7 +15,7 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const { serverUrl } = useContext(authDataContext)
-  const { getAdmin, adminData } = useContext(adminDataContext)
+  const { getAdmin } = useContext(adminDataContext)
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
 
@@ -29,15 +29,12 @@ function Login() {
       const result = await axios.post(serverUrl + '/api/auth/adminlogin', { email, password }, { withCredentials: true })
       console.log(result.data)
       toast.success("Admin Login Successfully")
-      const adminDataResult = await getAdmin()
-      if (adminDataResult) {
-        // App.jsx will automatically redirect when adminData is set via useEffect
-        // But we also navigate here to be safe
-        navigate("/", { replace: true })
-      }
+      getAdmin()
+      navigate("/")
     } catch (error) {
       console.log(error)
       toast.error("Admin Login Failed")
+    } finally {
       setLoading(false)
     }
   }

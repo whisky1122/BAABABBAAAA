@@ -14,11 +14,9 @@ function AdminContext({children}) {
 
       setAdminData(result.data)
       console.log(result.data)
-      return result.data
       } catch (error) {
         setAdminData(null)
         console.log(error)
-        return null
       }
     }
 
