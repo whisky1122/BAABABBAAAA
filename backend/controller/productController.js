@@ -11,6 +11,10 @@ export const addProduct = async (req, res) => {
         const image3 = req.files.image3 && req.files.image3[0] ? await uploadOnCloudinary(req.files.image3[0].path) : undefined
         const image4 = req.files.image4 && req.files.image4[0] ? await uploadOnCloudinary(req.files.image4[0].path) : undefined
 
+        if (!image1) {
+            return res.status(400).json({ message: "Image 1 Upload Failed. Please check logs for Cloudinary error." })
+        }
+
         console.log("Received Files:", req.files);
         console.log("Image 1 Uploaded URL:", image1);
 
