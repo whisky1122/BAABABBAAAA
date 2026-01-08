@@ -17,8 +17,15 @@ let app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
- origin: true,
- credentials:true
+ origin: [
+   "https://zoyaelegance.com",
+   "https://www.zoyaelegance.com",
+   "https://baababbaaaa-4.onrender.com",
+   "http://localhost:5173",
+   "http://localhost:5001",
+   "http://localhost:3000"
+ ],
+ credentials: true
 }))
 
 app.use("/api/auth",authRoutes)
