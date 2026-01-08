@@ -28,9 +28,14 @@ function Login() {
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       const result = await axios.post(serverUrl + '/api/auth/adminlogin', { email, password }, { withCredentials: true })
       console.log(result.data)
-      toast.success("Admin Login Successfully")
-      getAdmin()
-      navigate("/")
+
+      const adminData = await getAdmin()
+      if (adminData) {
+        toast.success("Admin Login Successfully")
+        navigate("/")
+      } else {
+        toast.error("Login successful but failed to fetch admin profile")
+      }
     } catch (error) {
       console.log(error)
       toast.error("Admin Login Failed")
@@ -42,17 +47,17 @@ function Login() {
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   return (
     <div className='min-h-screen bg-white text-black overflow-x-hidden relative font-serif'>
-      
+
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
       <section className='py-16 px-6 bg-black text-white'>
         <div className='max-w-7xl mx-auto'>
-          
+
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='flex items-center gap-3 mb-12'>
             <div className='w-10 h-10 bg-white rounded flex items-center justify-center'>
-              <img 
-                src={logo} 
-                alt="Frozelia Logo" 
+              <img
+                src={logo}
+                alt="Frozelia Logo"
                 className='w-6 h-6 object-contain'
               />
             </div>
@@ -88,21 +93,21 @@ function Login() {
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
       <section className='py-20 px-6 bg-white flex items-center justify-center'>
         <div className='w-full max-w-md'>
-          
+
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='bg-stone-50 border border-stone-200 rounded-lg p-8 shadow-lg'>
-            
+
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <form onSubmit={AdminLogin} className='space-y-6'>
-              
+
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div>
                 <label className='block text-lg font-medium text-black mb-3 uppercase tracking-wide'>
                   Email Address
                 </label>
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   placeholder='Enter your email'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -118,7 +123,7 @@ function Login() {
                 </label>
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <div className='relative'>
-                  <input 
+                  <input
                     type={show ? "text" : "password"}
                     placeholder='Enter your password'
                     value={password}
@@ -143,7 +148,7 @@ function Login() {
               </div>
 
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-              <button 
+              <button
                 type="submit"
                 disabled={loading}
                 className='w-full h-12 bg-black text-white hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed font-medium uppercase tracking-wide transition-colors duration-300 flex items-center justify-center gap-3'
