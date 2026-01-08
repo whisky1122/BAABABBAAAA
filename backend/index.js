@@ -15,24 +15,7 @@ let port = process.env.PORT || 3000
 let app = express()
 
 app.use(cors({
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-      "https://baababbaaaa-4.onrender.com",
-      "https://zoyaelegance.com",
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "https://baababbaaaa.onrender.com"
-    ];
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.indexOf(origin) !== -1 || origin.includes("onrender.com")) {
-      return callback(null, true);
-    } else {
-      console.log("Blocked by CORS:", origin);
-      return callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: true,
   credentials: true
 }))
 app.use(express.json())

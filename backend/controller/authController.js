@@ -111,12 +111,6 @@ export const googleLogin = async (req, res) => {
 export const adminLogin = async (req, res) => {
     try {
         let { email, password } = req.body
-        console.log("Received Admin Login Request:");
-        console.log("Input Email:", email);
-        // Do NOT log password in production normally, but for debugging we need to check match
-        // console.log("Input Password:", password); 
-        console.log("Env Email:", process.env.ADMIN_EMAIL);
-        // console.log("Env Password:", process.env.ADMIN_PASSWORD);
 
         if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
             let token = await genToken1(email)
