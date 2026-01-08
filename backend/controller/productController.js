@@ -11,6 +11,9 @@ export const addProduct = async (req, res) => {
         const image3 = req.files.image3 && req.files.image3[0] ? await uploadOnCloudinary(req.files.image3[0].path) : undefined
         const image4 = req.files.image4 && req.files.image4[0] ? await uploadOnCloudinary(req.files.image4[0].path) : undefined
 
+        console.log("Received Files:", req.files);
+        console.log("Image 1 Uploaded URL:", image1);
+
         let productData = {
             name,
             description,
@@ -26,6 +29,8 @@ export const addProduct = async (req, res) => {
             image4
 
         }
+
+        console.log("Product Data to be saved:", productData);
 
         const product = await Product.create(productData)
 
