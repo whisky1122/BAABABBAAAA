@@ -29,7 +29,7 @@ function Login() {
       const result = await axios.post(serverUrl + '/api/auth/adminlogin', { email, password }, { withCredentials: true })
       console.log(result.data)
       toast.success("Admin Login Successfully")
-      getAdmin()
+      await getAdmin()
       navigate("/")
     } catch (error) {
       console.log(error)
