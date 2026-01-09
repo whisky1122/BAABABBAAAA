@@ -10,7 +10,23 @@ import SidebarContextProvider from './context/SidebarContext'
 import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
-  let { adminData } = useContext(adminDataContext)
+  let { adminData, loading } = useContext(adminDataContext)
+
+  // Show loading state while checking authentication
+  if (loading) {
+    return (
+      <>
+        <ToastContainer />
+        <div className='min-h-screen bg-white flex items-center justify-center'>
+          <div className='text-center'>
+            <div className='w-12 h-12 border-4 border-stone-300 border-t-black rounded-full animate-spin mx-auto mb-4'></div>
+            <p className='text-lg font-light text-gray-600'>Loading...</p>
+          </div>
+        </div>
+      </>
+    )
+  }
+
   return (
 
     <>

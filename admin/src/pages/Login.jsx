@@ -58,13 +58,13 @@ function Login() {
             <div className='w-10 h-10 bg-white rounded flex items-center justify-center'>
               <img
                 src={logo}
-                alt="Frozelia Logo"
+                alt="ZoyaElegance Logo"
                 className='w-6 h-6 object-contain'
               />
             </div>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <h1 className='text-2xl font-light tracking-wide text-white'>
-              FROZELIA
+              ZoyaElegance
             </h1>
           </div>
 
@@ -177,7 +177,7 @@ function Login() {
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='text-center mt-8'>
             <p className='text-sm text-gray-500 font-light'>
-              © 2025 Frozelia. All rights reserved.
+              © 2025 ZoyaElegance. All rights reserved.
             </p>
           </div>
         </div>

@@ -18,7 +18,7 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const { serverUrl } = useContext(authDataContext)
-  const { getCurrentUser } = useContext(userDataContext)
+  const { getCurrentUser, setUserData } = useContext(userDataContext)
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
@@ -33,7 +33,7 @@ function Login() {
         email, password
       }, { withCredentials: true })
       console.log(result.data)
-      getCurrentUser()
+      setUserData(result.data)
       navigate("/")
     } catch (error) {
       console.log(error)
@@ -55,10 +55,9 @@ function Login() {
       const result = await axios.post(serverUrl + "/api/auth/googlelogin", { name, email }, { withCredentials: true });
       console.log("Backend Response:", result.data);
       if (result.data) {
-        getCurrentUser();
+        setUserData(result.data)
         console.log("Navigating to home...");
-        // Use a faster navigation method
-        window.location.assign("/");
+        navigate("/");
       }
     } catch (error) {
       console.error("Google Login Error:", error);
@@ -69,11 +68,11 @@ function Login() {
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   return (
     <div className='min-h-screen bg-white text-black overflow-x-hidden font-serif'>
-      
+
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
       <nav className='fixed top-0 w-full bg-white border-b border-stone-200 z-50'>
         <div className='max-w-7xl mx-auto px-6 h-16 flex items-center justify-between'>
-          <div 
+          <div
             className='flex items-center gap-3 cursor-pointer group'
             onClick={() => navigate("/")}
           >
@@ -92,7 +91,7 @@ function Login() {
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
       <div className='pt-16 min-h-screen flex items-center justify-center px-6 py-12'>
         <div className='w-full max-w-md'>
-          
+
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='text-center mb-12'>
             <h2 className='text-4xl font-extralight text-black mb-4 tracking-tight'>
@@ -106,9 +105,9 @@ function Login() {
 
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='bg-stone-50 border border-stone-200 p-8 space-y-6'>
-            
+
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-            <button 
+            <button
               type="button"
               onClick={googlelogin}
               className='w-full h-12 bg-white border border-stone-300 text-black flex items-center justify-center gap-3 hover:bg-stone-50 transition-colors duration-300 font-medium'
@@ -132,28 +131,28 @@ function Login() {
 
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <form onSubmit={handleLogin} className='space-y-6'>
-              
+
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   placeholder='Email address'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className='w-full h-12 bg-white border border-stone-300 px-4 text-black placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-black focus:border-black transition-all duration-300'
-                  required 
+                  required
                 />
               </div>
 
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div className='relative'>
-                <input 
+                <input
                   type={show ? "text" : "password"}
                   placeholder='Password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className='w-full h-12 bg-white border border-stone-300 px-4 pr-12 text-black placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-black focus:border-black transition-all duration-300'
-                  required 
+                  required
                 />
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <button
@@ -171,7 +170,7 @@ function Login() {
               </div>
 
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-              <button 
+              <button
                 type="submit"
                 disabled={loading}
                 className='w-full h-12 bg-black text-white hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300 font-medium uppercase tracking-wide'
@@ -193,7 +192,7 @@ function Login() {
               <p className='text-gray-600 font-light'>
                 Don't have an account?{' '}
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                <button 
+                <button
                   onClick={() => navigate("/signup")}
                   className='text-black hover:underline font-medium transition-all duration-300'
                 >

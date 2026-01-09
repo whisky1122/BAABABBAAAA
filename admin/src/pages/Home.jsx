@@ -56,7 +56,7 @@ function Home() {
             </span>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <h1 className='text-3xl sm:text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
-              FROZELIA ADMIN
+              ZOYAELEGANCE ADMIN
             </h1>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <div className='flex items-center justify-center mb-6'>

@@ -57,14 +57,14 @@ function Nav() {
             <div className='w-8 h-8 sm:w-10 sm:h-10 bg-black rounded flex items-center justify-center group-hover:bg-gray-800 transition-colors duration-300'>
               <img
                 src={logo}
-                alt="Frozelia Logo"
+                alt="ZoyaElegance Logo"
                 className='w-5 h-5 sm:w-6 sm:h-6 object-contain'
               />
             </div>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <div className='flex flex-col'>
               <h1 className='text-xl sm:text-2xl font-light tracking-wide text-black group-hover:text-gray-700 transition-colors duration-300'>
-                FROZELIA
+                ZoyaElegance
               </h1>
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <span className='text-[10px] sm:text-xs font-light tracking-wider text-gray-500 uppercase'>
