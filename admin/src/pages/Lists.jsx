@@ -63,18 +63,18 @@ function Lists() {
     <div className='min-h-screen bg-white text-black overflow-x-hidden relative font-serif'>
       <Nav />
       <Sidebar />
-      
+
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-      <main className='ml-64 pt-[70px]'>
-        
+      <main className='lg:ml-64 pt-[70px]'>
+
         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-        <section className='py-16 px-6 bg-black text-white'>
+        <section className='py-12 sm:py-16 px-4 sm:px-6 bg-black text-white'>
           <div className='max-w-7xl mx-auto text-center'>
-            <span className='text-xs font-light tracking-[0.6em] uppercase text-gray-300 block mb-4'>
+            <span className='text-xs font-light tracking-[0.4em] sm:tracking-[0.6em] uppercase text-gray-300 block mb-4'>
               Product Management
             </span>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-            <h1 className='text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
+            <h1 className='text-3xl sm:text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
               PRODUCT LIST
             </h1>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
@@ -84,16 +84,16 @@ function Lists() {
               <div className='w-8 h-px bg-white'></div>
             </div>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-            <p className='text-lg font-light text-gray-300 max-w-2xl mx-auto'>
+            <p className='text-base sm:text-lg font-light text-gray-300 max-w-2xl mx-auto px-4'>
               Manage your luxury product inventory
             </p>
           </div>
         </section>
 
         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-        <section className='py-20 px-6 bg-white'>
+        <section className='py-12 sm:py-20 px-4 sm:px-6 bg-white'>
           <div className='max-w-7xl mx-auto'>
-            
+
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             {loading ? (
               <div className='text-center py-20'>
@@ -106,14 +106,14 @@ function Lists() {
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 {list.map((item, index) => (
                   <div key={item._id || index} className='bg-stone-50 border border-stone-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'>
-                    
+
                     {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                     <div className='flex flex-col lg:flex-row'>
-                      
+
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                       <div className='lg:w-80 h-64 lg:h-auto flex-shrink-0'>
-                        <img 
-                          src={item.image1} 
+                        <img
+                          src={item.image1}
                           alt={item.name}
                           className='w-full h-full object-cover'
                         />
@@ -121,13 +121,13 @@ function Lists() {
 
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                       <div className='flex-1 p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between'>
-                        
+
                         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                         <div className='flex-1'>
                           <h2 className='text-2xl font-light text-black mb-3 tracking-wide uppercase'>
                             {item.name}
                           </h2>
-                          
+
                           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                           <div className='space-y-2 mb-4'>
                             <div className='flex items-center gap-4'>
@@ -139,7 +139,7 @@ function Lists() {
                                 {item.category}
                               </span>
                             </div>
-                            
+
                             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                             {item.subCategory && (
                               <div className='flex items-center gap-4'>
@@ -185,7 +185,7 @@ function Lists() {
                 <h2 className='text-2xl font-light text-gray-600 mb-4'>No products available</h2>
                 <p className='text-gray-500 mb-8'>Start by adding your first product to the inventory</p>
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                <button 
+                <button
                   onClick={() => window.location.href = '/add'}
                   className='bg-black text-white px-8 py-3 font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors duration-300'
                 >
@@ -205,7 +205,7 @@ function Lists() {
                   Refresh your product list to see the latest updates
                 </p>
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                <button 
+                <button
                   onClick={fetchList}
                   disabled={loading}
                   className='bg-black text-white hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed px-8 py-3 font-medium uppercase tracking-wide transition-colors duration-300'

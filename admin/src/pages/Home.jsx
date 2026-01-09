@@ -44,18 +44,18 @@ function Home() {
     <div className='min-h-screen bg-white text-black overflow-x-hidden relative font-serif'>
       <Nav />
       <Sidebar />
-      
+
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-      <main className='ml-64 pt-[70px]'>
-        
+      <main className='lg:ml-64 pt-[70px]'>
+
         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-        <section className='py-16 px-6 bg-black text-white'>
+        <section className='py-12 sm:py-16 px-4 sm:px-6 bg-black text-white'>
           <div className='max-w-7xl mx-auto text-center'>
-            <span className='text-xs font-light tracking-[0.6em] uppercase text-gray-300 block mb-4'>
+            <span className='text-xs font-light tracking-[0.4em] sm:tracking-[0.6em] uppercase text-gray-300 block mb-4'>
               Admin Dashboard
             </span>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-            <h1 className='text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
+            <h1 className='text-3xl sm:text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
               FROZELIA ADMIN
             </h1>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
@@ -65,16 +65,16 @@ function Home() {
               <div className='w-8 h-px bg-white'></div>
             </div>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-            <p className='text-lg font-light text-gray-300 max-w-2xl mx-auto'>
+            <p className='text-base sm:text-lg font-light text-gray-300 max-w-2xl mx-auto px-4'>
               Store management and analytics overview
             </p>
           </div>
         </section>
 
         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-        <section className='py-20 px-6 bg-white'>
+        <section className='py-12 sm:py-20 px-4 sm:px-6 bg-white'>
           <div className='max-w-7xl mx-auto'>
-            
+
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             {loading ? (
               <div className='text-center py-20'>
@@ -86,7 +86,7 @@ function Home() {
               <>
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16'>
-                  
+
                   {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                   <div className='bg-stone-50 border border-stone-200 rounded-lg p-12 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center'>
                     <div className='mb-8'>
@@ -100,7 +100,7 @@ function Home() {
                       </h2>
                       <p className='text-gray-600 font-light'>Items in your inventory</p>
                     </div>
-                    
+
                     {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                     <div className='bg-white border border-stone-300 rounded-lg p-8 inline-block shadow-sm'>
                       <span className='text-4xl font-extralight text-black'>
@@ -122,7 +122,7 @@ function Home() {
                       </h2>
                       <p className='text-gray-600 font-light'>Customer orders received</p>
                     </div>
-                    
+
                     {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                     <div className='bg-white border border-stone-300 rounded-lg p-8 inline-block shadow-sm'>
                       <span className='text-4xl font-extralight text-black'>
@@ -146,7 +146,7 @@ function Home() {
 
                   {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                   <div className='grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto'>
-                    
+
                     {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                     <div className='bg-white border border-stone-300 rounded-lg p-6 text-center hover:shadow-md transition-shadow duration-300'>
                       <div className='w-12 h-12 bg-black rounded-lg flex items-center justify-center mx-auto mb-4'>
@@ -160,7 +160,7 @@ function Home() {
                         Create new product listings
                       </p>
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                      <button 
+                      <button
                         onClick={() => navigate('/add')}
                         className='bg-black text-white px-4 py-2 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors duration-300'
                       >
@@ -181,7 +181,7 @@ function Home() {
                         View and edit inventory
                       </p>
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                      <button 
+                      <button
                         onClick={() => navigate('/lists')}
                         className='bg-black text-white px-4 py-2 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors duration-300'
                       >
@@ -202,7 +202,7 @@ function Home() {
                         Manage customer orders
                       </p>
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                      <button 
+                      <button
                         onClick={() => navigate('/orders')}
                         className='bg-black text-white px-4 py-2 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors duration-300'
                       >
@@ -222,7 +222,7 @@ function Home() {
                     Refresh your dashboard data to see the latest statistics
                   </p>
                   {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                  <button 
+                  <button
                     onClick={fetchCounts}
                     disabled={loading}
                     className='bg-black text-white hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed px-8 py-3 font-medium uppercase tracking-wide transition-colors duration-300'

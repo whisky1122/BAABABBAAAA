@@ -30,7 +30,7 @@ function Add() {
     // Sold Copy By Eliteblaze , dev: Prayag kaushik
     e.preventDefault()
     setLoading(true)
-    
+
     try {
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       if (!name.trim()) {
@@ -38,21 +38,21 @@ function Add() {
         setLoading(false)
         return
       }
-      
+
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       if (!description.trim()) {
         toast.error("Product description is required")
         setLoading(false)
         return
       }
-      
+
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       if (!price || price <= 0) {
         toast.error("Valid price is required")
         setLoading(false)
         return
       }
-      
+
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       if (!image1) {
         toast.error("At least one product image is required")
@@ -69,7 +69,7 @@ function Add() {
       formData.append("subCategory", subCategory)
       formData.append("bestseller", bestseller.toString())
       formData.append("sizes", JSON.stringify(sizes))
-      
+
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       if (image1) formData.append("image1", image1)
       if (image2) formData.append("image2", image2)
@@ -100,10 +100,10 @@ function Add() {
 
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       console.log("Server response:", result.data)
-      
+
       if (result.data && result.data.success !== false) {
         toast.success("Product Added Successfully!")
-        
+
         // Sold Copy By Eliteblaze , dev: Prayag kaushik
         setName("")
         setDescription("")
@@ -119,10 +119,10 @@ function Add() {
       } else {
         toast.error(result.data?.message || "Failed to add product")
       }
-      
+
     } catch (error) {
       console.error("Add product error:", error)
-      
+
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       if (error.response) {
         console.error("Server error:", error.response.data)
@@ -145,18 +145,18 @@ function Add() {
     <div className='min-h-screen bg-white text-black overflow-x-hidden relative font-serif'>
       <Nav />
       <Sidebar />
-      
+
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-      <main className='ml-64 pt-[70px]'>
-        
+      <main className='lg:ml-64 pt-[70px]'>
+
         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-        <section className='py-16 px-6 bg-black text-white'>
+        <section className='py-12 sm:py-16 px-4 sm:px-6 bg-black text-white'>
           <div className='max-w-7xl mx-auto text-center'>
-            <span className='text-xs font-light tracking-[0.6em] uppercase text-gray-300 block mb-4'>
+            <span className='text-xs font-light tracking-[0.4em] sm:tracking-[0.6em] uppercase text-gray-300 block mb-4'>
               Product Management
             </span>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-            <h1 className='text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
+            <h1 className='text-3xl sm:text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
               ADD PRODUCT
             </h1>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
@@ -166,19 +166,19 @@ function Add() {
               <div className='w-8 h-px bg-white'></div>
             </div>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-            <p className='text-lg font-light text-gray-300 max-w-2xl mx-auto'>
+            <p className='text-base sm:text-lg font-light text-gray-300 max-w-2xl mx-auto px-4'>
               Create a new product for your luxury collection
             </p>
           </div>
         </section>
 
         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-        <section className='py-20 px-6 bg-white'>
+        <section className='py-12 sm:py-20 px-4 sm:px-6 bg-white'>
           <div className='max-w-4xl mx-auto'>
-            
+
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <form onSubmit={handleAddProduct} className='bg-stone-50 border border-stone-200 rounded-lg p-8 space-y-8'>
-              
+
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div>
                 <h3 className='text-2xl font-light text-black mb-6 tracking-wide uppercase'>
@@ -186,7 +186,7 @@ function Add() {
                 </h3>
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <p className='text-gray-600 font-light mb-6'>Upload high-quality images (at least one required)</p>
-                
+
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <div className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
                   {[
@@ -195,16 +195,15 @@ function Add() {
                     { image: image3, setImage: setImage3, id: 'image3', required: false },
                     { image: image4, setImage: setImage4, id: 'image4', required: false }
                   ].map(({ image, setImage, id, required }, index) => (
-                    <label 
+                    <label
                       key={id}
                       htmlFor={id}
-                      className={`relative aspect-square cursor-pointer bg-white border-2 border-dashed rounded-lg overflow-hidden hover:border-black transition-colors duration-300 group ${
-                        required ? 'border-red-300' : 'border-stone-300'
-                      }`}
+                      className={`relative aspect-square cursor-pointer bg-white border-2 border-dashed rounded-lg overflow-hidden hover:border-black transition-colors duration-300 group ${required ? 'border-red-300' : 'border-stone-300'
+                        }`}
                     >
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                      <img 
-                        src={!image ? upload : URL.createObjectURL(image)} 
+                      <img
+                        src={!image ? upload : URL.createObjectURL(image)}
                         alt={`Upload ${index + 1}`}
                         className='w-full h-full object-cover'
                       />
@@ -215,10 +214,10 @@ function Add() {
                         </span>
                       </div>
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                      <input 
-                        type="file" 
-                        id={id} 
-                        hidden 
+                      <input
+                        type="file"
+                        id={id}
+                        hidden
                         accept="image/*"
                         onChange={(e) => {
                           const file = e.target.files[0]
@@ -235,15 +234,15 @@ function Add() {
 
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
-                
+
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <div>
                   <label className='block text-lg font-medium text-black mb-3 uppercase tracking-wide'>
                     Product Name *
                   </label>
                   {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     placeholder='Enter product name'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -258,8 +257,8 @@ function Add() {
                     Price * (₹)
                   </label>
                   {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     placeholder='Enter price'
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
@@ -277,7 +276,7 @@ function Add() {
                   Product Description *
                 </label>
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                <textarea 
+                <textarea
                   placeholder='Enter detailed product description'
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
@@ -294,7 +293,7 @@ function Add() {
                     Category *
                   </label>
                   {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                  <select 
+                  <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                     className='w-full h-12 bg-white border border-stone-300 px-4 text-black focus:outline-none focus:ring-1 focus:ring-black focus:border-black transition-all duration-300'
@@ -311,7 +310,7 @@ function Add() {
                     Sub-Category *
                   </label>
                   {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                  <select 
+                  <select
                     value={subCategory}
                     onChange={(e) => setSubCategory(e.target.value)}
                     className='w-full h-12 bg-white border border-stone-300 px-4 text-black focus:outline-none focus:ring-1 focus:ring-black focus:border-black transition-all duration-300'
@@ -335,16 +334,15 @@ function Add() {
                     <button
                       key={size}
                       type='button'
-                      onClick={() => setSizes(prev => 
-                        prev.includes(size) 
-                          ? prev.filter(item => item !== size) 
+                      onClick={() => setSizes(prev =>
+                        prev.includes(size)
+                          ? prev.filter(item => item !== size)
                           : [...prev, size]
                       )}
-                      className={`px-6 py-3 font-medium border-2 transition-all duration-300 ${
-                        sizes.includes(size) 
-                          ? "bg-black text-white border-black" 
-                          : "bg-white text-black border-stone-300 hover:border-black"
-                      }`}
+                      className={`px-6 py-3 font-medium border-2 transition-all duration-300 ${sizes.includes(size)
+                        ? "bg-black text-white border-black"
+                        : "bg-white text-black border-stone-300 hover:border-black"
+                        }`}
                     >
                       {size}
                     </button>
@@ -361,9 +359,9 @@ function Add() {
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div className='bg-white border border-stone-300 rounded-lg p-6'>
                 <div className='flex items-center gap-4'>
-                  <input 
-                    type="checkbox" 
-                    id='bestseller' 
+                  <input
+                    type="checkbox"
+                    id='bestseller'
                     checked={bestseller}
                     onChange={() => setBestSeller(prev => !prev)}
                     className='w-5 h-5'
@@ -381,7 +379,7 @@ function Add() {
 
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div className='pt-6 text-center'>
-                <button 
+                <button
                   type='submit'
                   disabled={loading}
                   className='bg-black text-white hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed px-12 py-4 font-medium uppercase tracking-wide transition-colors duration-300 flex items-center justify-center gap-3 mx-auto'

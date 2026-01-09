@@ -55,18 +55,18 @@ function Orders() {
     <div className='min-h-screen bg-white text-black overflow-x-hidden relative font-serif'>
       <Nav />
       <Sidebar />
-      
+
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-      <main className='ml-64 pt-[70px]'>
-        
+      <main className='lg:ml-64 pt-[70px]'>
+
         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-        <section className='py-16 px-6 bg-black text-white'>
+        <section className='py-12 sm:py-16 px-4 sm:px-6 bg-black text-white'>
           <div className='max-w-7xl mx-auto text-center'>
-            <span className='text-xs font-light tracking-[0.6em] uppercase text-gray-300 block mb-4'>
+            <span className='text-xs font-light tracking-[0.4em] sm:tracking-[0.6em] uppercase text-gray-300 block mb-4'>
               Order Management
             </span>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-            <h1 className='text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
+            <h1 className='text-3xl sm:text-5xl lg:text-6xl font-extralight tracking-tight mb-6'>
               ALL ORDERS
             </h1>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
@@ -76,16 +76,16 @@ function Orders() {
               <div className='w-8 h-px bg-white'></div>
             </div>
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-            <p className='text-lg font-light text-gray-300 max-w-2xl mx-auto'>
+            <p className='text-base sm:text-lg font-light text-gray-300 max-w-2xl mx-auto px-4'>
               Manage and track all customer orders
             </p>
           </div>
         </section>
 
         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-        <section className='py-20 px-6 bg-white'>
+        <section className='py-12 sm:py-20 px-4 sm:px-6 bg-white'>
           <div className='max-w-7xl mx-auto'>
-            
+
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             {loading ? (
               <div className='text-center py-20'>
@@ -98,11 +98,11 @@ function Orders() {
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 {orders.map((order, index) => (
                   <div key={order._id || index} className='bg-stone-50 border border-stone-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'>
-                    
+
                     {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                     <div className='p-8'>
                       <div className='flex flex-col lg:flex-row gap-8'>
-                        
+
                         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                         <div className='flex-shrink-0'>
                           <div className='w-16 h-16 bg-black rounded-lg flex items-center justify-center'>
@@ -147,7 +147,7 @@ function Orders() {
                         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                         <div className='lg:w-80'>
                           <div className='bg-white border border-stone-200 p-6 rounded-lg space-y-4'>
-                            
+
                             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                             <div className='text-sm space-y-2'>
                               <div className='flex justify-between'>
@@ -225,7 +225,7 @@ function Orders() {
                   Refresh your orders list to see the latest updates
                 </p>
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                <button 
+                <button
                   onClick={fetchAllOrders}
                   disabled={loading}
                   className='bg-black text-white hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed px-8 py-3 font-medium uppercase tracking-wide transition-colors duration-300'
