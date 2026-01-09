@@ -7,7 +7,7 @@ import { userDataContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 import { IoMdHome } from "react-icons/io"
 import { HiOutlineCollection } from "react-icons/hi"
-import { MdContacts } from "react-icons/md"
+import { MdContacts, MdEdit, MdCheck, MdClose } from "react-icons/md"
 import axios from 'axios'
 import { authDataContext } from '../context/AuthContext'
 import { shopDataContext } from '../context/ShopContext'
@@ -20,6 +20,11 @@ function Nav() {
   const [showProfile, setShowProfile] = useState(false)
   const [showMainMenu, setShowMainMenu] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [isEditingPhone, setIsEditingPhone] = useState(false)
+  const [isEditingAddress, setIsEditingAddress] = useState(false)
+  const [tempPhone, setTempPhone] = useState("")
+  const [tempAddress, setTempAddress] = useState("")
+  const [updating, setUpdating] = useState(false)
   const navigate = useNavigate()
 
 
@@ -50,6 +55,31 @@ function Nav() {
     navigate('/collection', { state: { category: category } })
     setShowMainMenu(false)
   }
+
+  const handleUpdateProfile = async () => {
+    setUpdating(true)
+    try {
+      const result = await axios.post(serverUrl + "/api/user/update-profile", {
+        phone: tempPhone,
+        address: tempAddress
+      }, { withCredentials: true })
+
+      getCurrentUser() // Refresh data
+      setIsEditingPhone(false)
+      setIsEditingAddress(false)
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setUpdating(false)
+    }
+  }
+
+  useEffect(() => {
+    if (userData) {
+      setTempPhone(userData.phone || "")
+      setTempAddress(userData.address || "")
+    }
+  }, [userData])
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -183,30 +213,7 @@ function Nav() {
                       </div>
                     </div>
 
-                    {/* Gifts Section */}
-                    <div className='px-6 py-4'>
-                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>GIFTS</h3>
-                      <div className='space-y-2'>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('gifts-for-her')}
-                        >
-                          For Her
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('gifts-for-him')}
-                        >
-                          For Him
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => navigate('/about')}
-                        >
-                          Personalization
-                        </button>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
               )}
@@ -263,6 +270,16 @@ function Nav() {
               )}
             </button>
 
+            {/* Profile/User Icon */}
+            <div className='relative menu-container'>
+              <button
+                className='text-black hover:opacity-60 transition-opacity duration-200 flex items-center'
+                onClick={() => setShowProfile(prev => !prev)}
+              >
+                <FaCircleUser className='w-5 h-5 md:w-6 md:h-6' />
+              </button>
+            </div>
+
             {/* Contact */}
             <button
               className='hidden xl:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
@@ -301,70 +318,123 @@ function Nav() {
 
       {/* GUCCI Profile Menu */}
       {showProfile && (
-        <div className={`fixed right-6 lg:right-12 w-80 bg-white border border-gray-200 shadow-lg z-50 transition-all duration-300 menu-container ${scrolled ? 'top-[72px]' : 'top-[120px]'
+        <div className={`fixed right-6 lg:right-12 w-80 md:w-96 bg-white border border-gray-200 shadow-2xl z-50 transition-all duration-300 menu-container ${scrolled ? 'top-[72px]' : 'top-[120px]'
           }`}>
 
-          {userData && (
-            <div className='p-6 border-b border-gray-200'>
-              <p className='text-lg font-normal text-black'>{userData?.name}</p>
-              <p className='text-sm text-gray-600 uppercase tracking-wide'>Premium Member</p>
+          {userData ? (
+            <div className='p-8'>
+              <div className='text-center mb-8'>
+                <div className='w-16 h-16 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4'>
+                  <FaCircleUser className='w-10 h-10 text-stone-400' />
+                </div>
+                <h3 className='text-xl font-normal text-black tracking-tight'>{userData?.name}</h3>
+                <p className='text-xs text-gray-400 uppercase tracking-widest mt-1'>Client Account</p>
+              </div>
+
+              <div className='space-y-6'>
+                {/* Email Section */}
+                <div className='border-b border-gray-100 pb-4'>
+                  <label className='block text-[10px] text-gray-400 uppercase tracking-widest mb-1'>Email Address</label>
+                  <p className='text-sm text-black font-light'>{userData?.email}</p>
+                </div>
+
+                {/* Phone Section */}
+                <div className='border-b border-gray-100 pb-4 relative group'>
+                  <label className='block text-[10px] text-gray-400 uppercase tracking-widest mb-1'>Phone Number</label>
+                  {isEditingPhone ? (
+                    <div className='flex items-center gap-2'>
+                      <input
+                        type="text"
+                        value={tempPhone}
+                        onChange={(e) => setTempPhone(e.target.value)}
+                        className='text-sm text-black font-light border-b border-black outline-none w-full bg-transparent p-0'
+                        placeholder='Enter phone number'
+                        autoFocus
+                      />
+                      <button onClick={handleUpdateProfile} className='text-black'><MdCheck className='w-4 h-4' /></button>
+                      <button onClick={() => { setIsEditingPhone(false); setTempPhone(userData.phone || "") }} className='text-gray-400'><MdClose className='w-4 h-4' /></button>
+                    </div>
+                  ) : (
+                    <div className='flex items-center justify-between'>
+                      <p className='text-sm text-black font-light'>{userData?.phone || "Not provided"}</p>
+                      <button
+                        onClick={() => setIsEditingPhone(true)}
+                        className='opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-400 hover:text-black'
+                      >
+                        <MdEdit className='w-4 h-4' />
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                {/* Address Section */}
+                <div className='border-b border-gray-100 pb-4 relative group'>
+                  <label className='block text-[10px] text-gray-400 uppercase tracking-widest mb-1'>Shipping Address</label>
+                  {isEditingAddress ? (
+                    <div className='flex items-center gap-2'>
+                      <textarea
+                        value={tempAddress}
+                        onChange={(e) => setTempAddress(e.target.value)}
+                        className='text-sm text-black font-light border border-gray-200 outline-none w-full p-2 bg-stone-50'
+                        placeholder='Enter your address'
+                        rows="2"
+                        autoFocus
+                      />
+                      <div className='flex flex-col gap-2'>
+                        <button onClick={handleUpdateProfile} className='text-black'><MdCheck className='w-4 h-4' /></button>
+                        <button onClick={() => { setIsEditingAddress(false); setTempAddress(userData.address || "") }} className='text-gray-400'><MdClose className='w-4 h-4' /></button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className='flex items-center justify-between'>
+                      <p className='text-sm text-black font-light leading-relaxed'>{userData?.address || "Not provided"}</p>
+                      <button
+                        onClick={() => setIsEditingAddress(true)}
+                        className='opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-400 hover:text-black'
+                      >
+                        <MdEdit className='w-4 h-4' />
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                {/* Actions */}
+                <div className='pt-4 space-y-4'>
+                  <button
+                    className='block w-full text-center text-[10px] font-normal uppercase tracking-widest text-white bg-black py-3 hover:bg-zinc-800 transition-colors duration-300'
+                    onClick={() => { navigate("/order"); setShowProfile(false) }}
+                  >
+                    View My Orders
+                  </button>
+                  <button
+                    className='block w-full text-center text-[10px] font-normal uppercase tracking-widest text-black border border-black py-3 hover:bg-stone-100 transition-colors duration-300'
+                    onClick={handleLogout}
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className='p-8 space-y-6'>
+              <div className='text-center mb-8'>
+                <h3 className='text-xl font-normal text-black tracking-tight italic font-serif'>Welcome</h3>
+                <p className='text-[10px] text-gray-400 uppercase tracking-widest mt-2'>Please sign in to your account</p>
+              </div>
+              <button
+                className='block w-full text-center text-[10px] font-normal uppercase tracking-widest text-white bg-black py-3 hover:bg-zinc-800 transition-colors duration-300'
+                onClick={() => { navigate("/login"); setShowProfile(false) }}
+              >
+                Sign In
+              </button>
+              <button
+                className='block w-full text-center text-[10px] font-normal uppercase tracking-widest text-black border border-black py-3 hover:bg-stone-100 transition-colors duration-300'
+                onClick={() => { navigate("/register"); setShowProfile(false) }}
+              >
+                Create Account
+              </button>
             </div>
           )}
-
-          <div className='py-4'>
-            {!userData ? (
-              <>
-                <button
-                  className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
-                  onClick={() => { navigate("/login"); setShowProfile(false) }}
-                >
-                  SIGN IN
-                </button>
-                <button
-                  className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
-                  onClick={() => { navigate("/register"); setShowProfile(false) }}
-                >
-                  CREATE ACCOUNT
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
-                  onClick={() => { navigate("/order"); setShowProfile(false) }}
-                >
-                  MY ORDERS
-                </button>
-                <button
-                  className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
-                  onClick={() => { navigate("/profile"); setShowProfile(false) }}
-                >
-                  MY PROFILE
-                </button>
-                <button
-                  className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
-                  onClick={() => { handleLogout(); setShowProfile(false) }}
-                >
-                  SIGN OUT
-                </button>
-              </>
-            )}
-
-            <hr className='my-2 border-gray-200' />
-
-            <button
-              className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
-              onClick={() => { navigate("/about"); setShowProfile(false) }}
-            >
-              ABOUT ZOYA ELEGANCE
-            </button>
-            <button
-              className='block w-full px-6 py-3 text-left text-sm font-normal uppercase tracking-wide text-black hover:bg-gray-50 transition-colors duration-200'
-              onClick={() => { navigate("/contact"); setShowProfile(false) }}
-            >
-              CUSTOMER SERVICE
-            </button>
-          </div>
         </div>
       )}
 
