@@ -43,6 +43,20 @@ function Orders() {
     }
   }
 
+  const deleteOrderHandler = async (orderId) => {
+    if (!window.confirm("Are you sure you want to delete this order?")) return;
+    try {
+      const result = await axios.post(serverUrl + '/api/order/remove', { orderId }, { withCredentials: true })
+      if (result.data) {
+        await fetchAllOrders()
+        toast.success("Order deleted successfully")
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error("Failed to delete order")
+    }
+  }
+
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   useEffect(() => {
     fetchAllOrders()
@@ -195,6 +209,14 @@ function Orders() {
                                 <option value="Out for delivery">Out for delivery</option>
                                 <option value="Delivered">Delivered</option>
                               </select>
+                            </div>
+                            <div className='border-t border-stone-200 pt-4'>
+                              <button
+                                onClick={() => deleteOrderHandler(order._id)}
+                                className='w-full bg-red-600 text-white px-4 py-2 text-sm font-medium uppercase tracking-wide hover:bg-red-700 transition-colors duration-300 rounded'
+                              >
+                                Delete Order
+                              </button>
                             </div>
                           </div>
                         </div>

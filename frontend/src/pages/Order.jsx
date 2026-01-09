@@ -5,6 +5,7 @@ import { shopDataContext } from '../context/ShopContext'
 import { authDataContext } from '../context/AuthContext'
 import axios from 'axios'
 import { userDataContext } from '../context/UserContext'
+import { toast } from 'react-toastify'
 
 // Sold Copy By Eliteblaze , dev: Prayag kaushik
 function Order() {
@@ -23,6 +24,7 @@ function Order() {
         let allOrdersItem = []
         result.data.forEach(order => {
           order.items.forEach(item => {
+            item['orderId'] = order._id
             item['status'] = order.status
             item['payment'] = order.payment
             item['paymentMethod'] = order.paymentMethod
@@ -34,6 +36,19 @@ function Order() {
       }
     } catch (error) {
       console.log(error)
+    }
+  }
+
+  const cancelOrderHandler = async (orderId) => {
+    try {
+      const result = await axios.post(serverUrl + '/api/order/cancel', { orderId }, { withCredentials: true })
+      if (result.data) {
+        toast.success(result.data.message)
+        loadOrderData()
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error(error.response?.data?.message || "Failed to cancel order")
     }
   }
 
@@ -172,10 +187,10 @@ function Order() {
                         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                         <div className='flex items-center gap-2 bg-white border border-stone-300 px-4 py-2 rounded-full'>
                           <div className={`w-2 h-2 rounded-full ${item.status === 'Delivered' ? 'bg-green-500' :
-                              item.status === 'Shipped' ? 'bg-blue-500' :
-                                item.status === 'Out for delivery' ? 'bg-purple-500' :
-                                  item.status === 'Packing' ? 'bg-yellow-500' :
-                                    'bg-gray-500'
+                            item.status === 'Shipped' ? 'bg-blue-500' :
+                              item.status === 'Out for delivery' ? 'bg-purple-500' :
+                                item.status === 'Packing' ? 'bg-yellow-500' :
+                                  'bg-gray-500'
                             }`}></div>
                           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                           <span className='text-sm font-medium text-black'>
@@ -190,6 +205,14 @@ function Order() {
                         >
                           Track Order
                         </button>
+                        {item.status === 'Order Placed' && (
+                          <button
+                            onClick={() => cancelOrderHandler(item.orderId)}
+                            className='bg-red-600 text-white px-6 py-2 text-sm font-medium uppercase tracking-wide hover:bg-red-700 transition-colors duration-300 rounded'
+                          >
+                            Cancel Order
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>

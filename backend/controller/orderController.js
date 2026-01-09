@@ -133,10 +133,37 @@ export const userOrders = async (req, res) => {
 
 
 
+
 //for Admin
 
+export const cancelOrder = async (req, res) => {
+    try {
+        const { orderId } = req.body;
+        const userId = req.userId;
 
+        const order = await Order.findById(orderId);
 
+        if (!order) {
+            return res.status(404).json({ message: "Order not found" });
+        }
+
+        if (order.userId !== userId) {
+            return res.status(403).json({ message: "Not authorized to cancel this order" });
+        }
+
+        if (order.status !== 'Order Placed') {
+            return res.status(400).json({ message: `Cannot cancel order in '${order.status}' status` });
+        }
+
+        order.status = 'Cancelled';
+        await order.save();
+
+        res.status(200).json({ message: "Order cancelled successfully" });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+}
 
 export const allOrders = async (req, res) => {
     try {

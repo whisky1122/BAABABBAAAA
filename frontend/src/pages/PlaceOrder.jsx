@@ -12,7 +12,7 @@ import Loading from '../component/Loading'
 // Sold Copy By Eliteblaze , dev: Prayag kaushik
 function PlaceOrder() {
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
-  const [method, setMethod] = useState('cod')
+  const [method, setMethod] = useState('razorpay')
   const navigate = useNavigate()
   const { cartItem, setCartItem, getCartAmount, delivery_fee, products } = useContext(shopDataContext)
   const { serverUrl } = useContext(authDataContext)
@@ -71,7 +71,7 @@ function PlaceOrder() {
     // Sold Copy By Eliteblaze , dev: Prayag kaushik
     e.preventDefault()
     setLoading(true)
-    
+
     try {
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       let orderItems = []
@@ -98,18 +98,6 @@ function PlaceOrder() {
 
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       switch (method) {
-        case 'cod': {
-          // Sold Copy By Eliteblaze , dev: Prayag kaushik
-          const result = await axios.post(serverUrl + '/api/order/placeorder', orderData, { withCredentials: true })
-          if (result.data) {
-            setCartItem({})
-            toast.success('Order placed successfully!')
-            navigate('/order')
-          } else {
-            toast.error('Failed to place order. Please try again.')
-          }
-          break
-        }
 
         // Sold Copy By Eliteblaze , dev: Prayag kaushik
         case 'razorpay': {
@@ -136,7 +124,7 @@ function PlaceOrder() {
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   return (
     <div className='min-h-screen bg-white text-black overflow-x-hidden relative top-[70px] font-serif'>
-      
+
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
       <section className='py-16 px-6 bg-black text-white'>
         <div className='max-w-7xl mx-auto text-center'>
@@ -164,7 +152,7 @@ function PlaceOrder() {
       <section className='py-20 px-6 bg-white'>
         <div className='max-w-7xl mx-auto'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-16'>
-            
+
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <div className='order-2 lg:order-1'>
               <div className='mb-12'>
@@ -179,7 +167,7 @@ function PlaceOrder() {
 
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <form onSubmit={onSubmitHandler} className='space-y-6'>
-                
+
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                   <input
@@ -304,10 +292,10 @@ function PlaceOrder() {
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <div className='order-1 lg:order-2'>
               <div className='sticky top-24 space-y-8'>
-                
+
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <div className='bg-stone-50 border border-stone-200 p-8'>
-                  <CartTotal/>
+                  <CartTotal />
                 </div>
 
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
@@ -315,53 +303,33 @@ function PlaceOrder() {
                   <h3 className='text-2xl font-light text-black mb-6 tracking-wide'>
                     PAYMENT METHOD
                   </h3>
-                  
+
                   {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                   <div className='space-y-4'>
-                    
+
                     {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                     <button
                       type='button'
                       onClick={() => setMethod('razorpay')}
-                      className={`w-full p-4 border-2 rounded transition-all duration-300 ${
-                        method === 'razorpay' 
-                          ? 'border-black bg-white' 
-                          : 'border-stone-300 bg-white hover:border-gray-400'
-                      }`}
+                      className={`w-full p-4 border-2 rounded transition-all duration-300 ${method === 'razorpay'
+                        ? 'border-black bg-white'
+                        : 'border-stone-300 bg-white hover:border-gray-400'
+                        }`}
                     >
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                       <div className='flex items-center gap-4'>
                         <div className='w-16 h-10 bg-white border border-stone-200 rounded overflow-hidden'>
-                          <img 
-                            src={razorpay} 
+                          <img
+                            src={razorpay}
                             alt="Razorpay"
                             className='w-full h-full object-contain'
                           />
                         </div>
                         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                        <span className='font-medium text-black'>Pay with Razorpay</span>
+                        <span className='font-medium text-black'>Pay with Card / Online</span>
                       </div>
                     </button>
 
-                    {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                    <button
-                      type='button'
-                      onClick={() => setMethod('cod')}
-                      className={`w-full p-4 border-2 rounded transition-all duration-300 ${
-                        method === 'cod' 
-                          ? 'border-black bg-white' 
-                          : 'border-stone-300 bg-white hover:border-gray-400'
-                      }`}
-                    >
-                      {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                      <div className='flex items-center gap-4'>
-                        <div className='w-16 h-10 bg-stone-800 rounded flex items-center justify-center'>
-                          <span className='text-white text-xs font-bold'>COD</span>
-                        </div>
-                        {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                        <span className='font-medium text-black'>Cash on Delivery</span>
-                      </div>
-                    </button>
                   </div>
                 </div>
               </div>
