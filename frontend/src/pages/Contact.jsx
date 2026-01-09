@@ -52,8 +52,8 @@ function Contact() {
                   OUR STORE
                 </h2>
                 <div className='space-y-3 text-lg font-light text-gray-700'>
-                  <p>husain ganj</p>
-                  <p>Lucknow, Uttar Pradesh, India</p>
+                  <p>Safdalbagh Guru Govind Singh Marg</p>
+                  <p>Lucknow 226001,Uttar Pradesh, India</p>
                 </div>
               </div>
 
