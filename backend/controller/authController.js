@@ -70,6 +70,7 @@ export const login = async (req, res) => {
 export const logOut = async (req, res) => {
     try {
         res.clearCookie("token")
+        res.clearCookie("adminToken")
         return res.status(200).json({ message: "logOut successful" })
     } catch (error) {
         console.log("logOut error")
@@ -114,7 +115,7 @@ export const adminLogin = async (req, res) => {
 
         if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
             let token = await genToken1(email)
-            res.cookie("token", token, {
+            res.cookie("adminToken", token, {
                 httpOnly: true,
                 secure: true,
                 sameSite: "none",

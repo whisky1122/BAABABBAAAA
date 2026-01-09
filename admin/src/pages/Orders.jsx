@@ -16,15 +16,13 @@ function Orders() {
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   const fetchAllOrders = async () => {
-    // Sold Copy By Eliteblaze , dev: Prayag kaushik
     setLoading(true)
     try {
-      // Sold Copy By Eliteblaze , dev: Prayag kaushik
-      const result = await axios.post(serverUrl + '/api/order/list', {}, { withCredentials: true })
+      const result = await axios.get(serverUrl + '/api/order/list', { withCredentials: true })
       setOrders(result.data.reverse())
     } catch (error) {
-      console.log(error)
-      toast.error("Failed to load orders")
+      console.log("Fetch orders error:", error.response?.data || error.message)
+      toast.error(error.response?.data?.message || "Failed to load orders")
     } finally {
       setLoading(false)
     }
