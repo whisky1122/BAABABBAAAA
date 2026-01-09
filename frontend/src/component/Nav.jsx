@@ -398,6 +398,32 @@ function Nav() {
                   )}
                 </div>
 
+                {/* Cart Summary Section */}
+                <div className='pt-4 pb-2 border-t border-stone-100 mt-4'>
+                  <div className='flex items-center justify-between mb-4'>
+                    <div className='flex items-center gap-3'>
+                      <div className='w-8 h-8 rounded-full bg-black flex items-center justify-center text-white'>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className='text-[10px] text-stone-400 uppercase tracking-widest font-medium'>Your Bag</p>
+                        <p className='text-xs text-black font-medium'>{getCartCount()} Items</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        navigate('/cart')
+                        setShowProfile(false)
+                      }}
+                      className='text-[10px] text-black uppercase tracking-widest font-bold hover:underline'
+                    >
+                      View All
+                    </button>
+                  </div>
+                </div>
+
                 {/* Actions */}
                 <div className='pt-4 space-y-4'>
                   <button

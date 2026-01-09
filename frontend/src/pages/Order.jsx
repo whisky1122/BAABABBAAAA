@@ -4,6 +4,7 @@ import Title from '../component/Title'
 import { shopDataContext } from '../context/ShopContext'
 import { authDataContext } from '../context/AuthContext'
 import axios from 'axios'
+import { userDataContext } from '../context/UserContext'
 
 // Sold Copy By Eliteblaze , dev: Prayag kaushik
 function Order() {
@@ -37,14 +38,18 @@ function Order() {
   }
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
+  const { userData } = useContext(userDataContext)
+
   useEffect(() => {
-    loadOrderData()
-  }, [])
+    if (userData) {
+      loadOrderData()
+    }
+  }, [userData])
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   return (
     <div className='min-h-screen bg-white text-black overflow-x-hidden relative top-[70px] font-serif'>
-      
+
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
       <section className='py-16 px-6 bg-black text-white'>
         <div className='max-w-7xl mx-auto text-center'>
@@ -71,7 +76,7 @@ function Order() {
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
       <section className='py-20 px-6 bg-white'>
         <div className='max-w-7xl mx-auto'>
-          
+
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           {orderData.length === 0 ? (
             <div className='text-center py-20'>
@@ -80,7 +85,7 @@ function Order() {
               <h2 className='text-2xl font-light text-gray-600 mb-4'>No orders yet</h2>
               <p className='text-gray-500 mb-8'>Start shopping to see your orders here</p>
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-              <button 
+              <button
                 className='bg-black text-white px-8 py-3 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors duration-300'
                 onClick={() => window.location.href = '/collection'}
               >
@@ -92,16 +97,16 @@ function Order() {
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               {orderData.map((item, index) => (
                 <div key={index} className='bg-stone-50 border border-stone-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300'>
-                  
+
                   {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                   <div className='p-6'>
                     <div className='flex flex-col lg:flex-row lg:items-center gap-6'>
-                      
+
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                       <div className='flex-shrink-0'>
                         <div className='w-32 h-32 bg-white border border-stone-200 rounded-lg overflow-hidden'>
-                          <img 
-                            src={item.image1} 
+                          <img
+                            src={item.image1}
                             alt={item.name}
                             className='w-full h-full object-cover'
                           />
@@ -111,7 +116,7 @@ function Order() {
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                       <div className='flex-1'>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                          
+
                           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                           <div className='space-y-2'>
                             <h3 className='text-xl font-light text-black mb-3'>
@@ -151,9 +156,8 @@ function Order() {
                               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                               <p className='text-gray-600'>
                                 <span className='font-medium text-black'>Payment Status:</span> {' '}
-                                <span className={`font-medium ${
-                                  item.payment ? 'text-green-600' : 'text-orange-600'
-                                }`}>
+                                <span className={`font-medium ${item.payment ? 'text-green-600' : 'text-orange-600'
+                                  }`}>
                                   {item.payment ? 'Paid' : 'Pending'}
                                 </span>
                               </p>
@@ -164,15 +168,15 @@ function Order() {
 
                       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                       <div className='flex flex-col items-center lg:items-end gap-4'>
-                        
+
                         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                         <div className='flex items-center gap-2 bg-white border border-stone-300 px-4 py-2 rounded-full'>
-                          <div className={`w-2 h-2 rounded-full ${
-                            item.status === 'Delivered' ? 'bg-green-500' :
-                            item.status === 'Shipped' ? 'bg-blue-500' :
-                            item.status === 'Processing' ? 'bg-yellow-500' :
-                            'bg-gray-500'
-                          }`}></div>
+                          <div className={`w-2 h-2 rounded-full ${item.status === 'Delivered' ? 'bg-green-500' :
+                              item.status === 'Shipped' ? 'bg-blue-500' :
+                                item.status === 'Out for delivery' ? 'bg-purple-500' :
+                                  item.status === 'Packing' ? 'bg-yellow-500' :
+                                    'bg-gray-500'
+                            }`}></div>
                           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                           <span className='text-sm font-medium text-black'>
                             {item.status}
@@ -180,7 +184,7 @@ function Order() {
                         </div>
 
                         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                        <button 
+                        <button
                           onClick={loadOrderData}
                           className='bg-black text-white px-6 py-2 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors duration-300 rounded'
                         >
@@ -201,7 +205,7 @@ function Order() {
         <section className='py-16 px-6 bg-stone-50'>
           <div className='max-w-7xl mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              
+
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div className='bg-white border border-stone-200 p-6 text-center'>
                 <div className='text-3xl font-light text-black mb-2'>
