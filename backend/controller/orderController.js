@@ -148,6 +148,17 @@ export const allOrders = async (req, res) => {
     }
 }
 
+export const deleteOrder = async (req, res) => {
+    try {
+        const { orderId } = req.body
+        await Order.findByIdAndDelete(orderId)
+        res.status(200).json({ message: "Order removed from admin panel" })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: error.message })
+    }
+}
+
 export const updateStatus = async (req, res) => {
 
     try {

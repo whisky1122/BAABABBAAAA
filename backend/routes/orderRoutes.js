@@ -14,5 +14,6 @@ orderRoutes.post("/verifyrazorpay", isAuth, verifyRazorpay)
 //for Admin
 orderRoutes.get("/list", adminAuth, allOrders)
 orderRoutes.post("/status", adminAuth, updateStatus)
+orderRoutes.post("/remove", adminAuth, deleteOrder)
 
 export default orderRoutes
