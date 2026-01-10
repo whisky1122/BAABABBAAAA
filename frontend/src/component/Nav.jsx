@@ -139,37 +139,6 @@ function Nav() {
               )}
             </div>
 
-            {/* Direct Category Links */}
-            <button
-              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-              onClick={() => handleCategoryClick('women')}
-            >
-              WOMEN
-            </button>
-            <button
-              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-              onClick={() => handleCategoryClick('men')}
-            >
-              MEN
-            </button>
-            <button
-              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-              onClick={() => handleCategoryClick('handbags')}
-            >
-              HANDBAGS
-            </button>
-            <button
-              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-              onClick={() => handleCategoryClick('Ethnic Sets')}
-            >
-              ETHNIC SETS
-            </button>
-            <button
-              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-              onClick={() => handleCategoryClick('ACCESSORIES')}
-            >
-              ACCESSORIES
-            </button>
           </div>
 
           {/* Center Logo - Responsive Centering */}
