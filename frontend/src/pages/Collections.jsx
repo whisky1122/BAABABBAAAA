@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { FaChevronRight, FaChevronDown } from "react-icons/fa"
 import Title from '../component/Title'
 import { shopDataContext } from '../context/ShopContext'
@@ -11,6 +12,24 @@ function Collections() {
   const [category, setCategory] = useState([])
   const [subCategory, setSubCategory] = useState([])
   const [sortType, setSortType] = useState("relevant")
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.state && location.state.category) {
+      const cat = location.state.category
+      // Check if it's a category or subCategory
+      const categories = ['Men', 'Women', 'Ethnic Sets']
+      const subCategories = ['TopWear', 'BottomWear', '💍 ACCESSORIES', 'Scarves & Stoles', 'Potli Bags', 'Dupattas & Stoles']
+
+      if (categories.includes(cat)) {
+        setCategory([cat])
+      } else if (subCategories.includes(cat)) {
+        setSubCategory([cat])
+      } else if (cat === 'women-ready-to-wear' || cat === 'men-ready-to-wear') {
+        // Handle existing links if necessary
+      }
+    }
+  }, [location.state])
 
   const toggleCategory = (e) => {
     const value = e.target.value
@@ -34,7 +53,7 @@ function Collections() {
     let productCopy = products.slice()
 
     if (showSearch && search) {
-      productCopy = productCopy.filter(item => 
+      productCopy = productCopy.filter(item =>
         item.name.toLowerCase().includes(search.toLowerCase())
       )
     }
@@ -80,7 +99,7 @@ function Collections() {
 
   return (
     <div className='min-h-screen bg-white text-black overflow-x-hidden relative top-[120px] gucci-collections'>
-      
+
       {/* GUCCI Header Section */}
       <section className='gucci-header-section'>
         <div className='max-w-5xl mx-auto px-6 text-center'>
@@ -95,12 +114,12 @@ function Collections() {
       </section>
 
       <div className='flex flex-col lg:flex-row max-w-6xl mx-auto px-6'>
-        
+
         {/* GUCCI Filter Sidebar */}
         <div className={`gucci-sidebar ${showFilter ? 'open' : 'closed'} lg:open`}>
-          
+
           {/* Filter Header */}
-          <div 
+          <div
             className='gucci-filter-header'
             onClick={() => setShowFilter(prev => !prev)}
           >
@@ -112,14 +131,14 @@ function Collections() {
 
           {/* Filter Content */}
           <div className={`gucci-filter-content ${showFilter ? 'show' : 'hide'} lg:show`}>
-            
+
             {/* Categories */}
             <div className='gucci-filter-group'>
               <h4 className='gucci-filter-group-title'>
                 CATEGORIES
               </h4>
               <div className='gucci-filter-options'>
-                {['Men', 'Women', 'Kids'].map(cat => (
+                {['Men', 'Women', 'Ethnic Sets'].map(cat => (
                   <label key={cat} className='gucci-checkbox-label'>
                     <input
                       type='checkbox'
@@ -142,7 +161,7 @@ function Collections() {
                 TYPE
               </h4>
               <div className='gucci-filter-options'>
-                {['TopWear', 'BottomWear', 'WinterWear'].map(sub => (
+                {['TopWear', 'BottomWear', '💍 ACCESSORIES', 'Scarves & Stoles', 'Potli Bags', 'Dupattas & Stoles'].map(sub => (
                   <label key={sub} className='gucci-checkbox-label'>
                     <input
                       type='checkbox'
@@ -163,13 +182,13 @@ function Collections() {
 
         {/* GUCCI Products Section */}
         <div className='gucci-products-section'>
-          
+
           {/* Products Header */}
           <div className='gucci-products-header'>
             <div className='gucci-item-count'>
               {filterProduct.length} {filterProduct.length === 1 ? 'ITEM' : 'ITEMS'}
             </div>
-            
+
             <select
               value={sortType}
               onChange={(e) => setSortType(e.target.value)}

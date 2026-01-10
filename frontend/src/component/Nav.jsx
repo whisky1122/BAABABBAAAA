@@ -213,6 +213,44 @@ function Nav() {
                       </div>
                     </div>
 
+                    {/* Ethnic Sets Section */}
+                    <div className='px-6 py-4 border-b border-gray-100'>
+                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>ETHNIC SETS</h3>
+                      <div className='space-y-2'>
+                        <button
+                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
+                          onClick={() => handleCategoryClick('Ethnic Sets')}
+                        >
+                          View All
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Accessories Section */}
+                    <div className='px-6 py-4 border-b border-gray-100'>
+                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>💍 ACCESSORIES</h3>
+                      <div className='space-y-2'>
+                        <button
+                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
+                          onClick={() => handleCategoryClick('Scarves & Stoles')}
+                        >
+                          Scarves & Stoles
+                        </button>
+                        <button
+                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
+                          onClick={() => handleCategoryClick('Potli Bags')}
+                        >
+                          Potli Bags
+                        </button>
+                        <button
+                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
+                          onClick={() => handleCategoryClick('Dupattas & Stoles')}
+                        >
+                          Dupattas & Stoles
+                        </button>
+                      </div>
+                    </div>
+
 
                   </div>
                 </div>
@@ -237,6 +275,18 @@ function Nav() {
               onClick={() => handleCategoryClick('handbags')}
             >
               HANDBAGS
+            </button>
+            <button
+              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
+              onClick={() => handleCategoryClick('Ethnic Sets')}
+            >
+              ETHNIC SETS
+            </button>
+            <button
+              className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
+              onClick={() => handleCategoryClick('💍 ACCESSORIES')}
+            >
+              💍 ACCESSORIES
             </button>
           </div>
 

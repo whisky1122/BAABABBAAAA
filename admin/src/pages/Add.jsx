@@ -300,7 +300,7 @@ function Add() {
                   >
                     <option value="Men">Men</option>
                     <option value="Women">Women</option>
-                    <option value="Kids">Kids</option>
+                    <option value="Ethnic Sets">Ethnic Sets</option>
                   </select>
                 </div>
 
@@ -317,7 +317,10 @@ function Add() {
                   >
                     <option value="TopWear">TopWear</option>
                     <option value="BottomWear">BottomWear</option>
-                    <option value="WinterWear">WinterWear</option>
+                    <option value="💍 ACCESSORIES">💍 ACCESSORIES</option>
+                    <option value="Scarves & Stoles">Scarves & Stoles</option>
+                    <option value="Potli Bags">Potli Bags</option>
+                    <option value="Dupattas & Stoles">Dupattas & Stoles</option>
                   </select>
                 </div>
               </div>
