@@ -13,7 +13,7 @@ function Footer() {
           <div className='md:col-span-2'>
             <div className='mb-8'>
               <h3 className='gucci-brand-title'>
-                FROZELIA
+                ZOYA ELEGANCE
               </h3>
             </div>
             <p className='gucci-brand-description'>

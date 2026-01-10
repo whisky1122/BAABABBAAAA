@@ -120,135 +120,17 @@ function Nav() {
                   }`}>
                   <div className='py-4'>
 
-                    {/* Women Section */}
-                    <div className='px-6 py-4 border-b border-gray-100'>
-                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>WOMEN</h3>
-                      <div className='space-y-2'>
+                    {/* Main Categories */}
+                    <div className='px-6 py-4 space-y-4'>
+                      {['WOMEN', 'MEN', 'HANDBAGS', 'ETHNIC SETS', 'ACCESSORIES'].map((item) => (
                         <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('women-ready-to-wear')}
+                          key={item}
+                          className='block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
+                          onClick={() => handleCategoryClick(item.toLowerCase() === 'ethnic sets' ? 'Ethnic Sets' : (item.toLowerCase() === 'accessories' ? 'ACCESSORIES' : item.toLowerCase()))}
                         >
-                          Ready-To-Wear
+                          {item}
                         </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('women-handbags')}
-                        >
-                          Handbags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('women-shoes')}
-                        >
-                          Shoes
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('women-accessories')}
-                        >
-                          Accessories
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Men Section */}
-                    <div className='px-6 py-4 border-b border-gray-100'>
-                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>MEN</h3>
-                      <div className='space-y-2'>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('men-ready-to-wear')}
-                        >
-                          Ready-To-Wear
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('men-bags')}
-                        >
-                          Bags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('men-shoes')}
-                        >
-                          Shoes
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('men-accessories')}
-                        >
-                          Accessories
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Handbags Section */}
-                    <div className='px-6 py-4 border-b border-gray-100'>
-                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>HANDBAGS</h3>
-                      <div className='space-y-2'>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('shoulder-bags')}
-                        >
-                          Shoulder Bags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('top-handle-bags')}
-                        >
-                          Top Handle Bags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('crossbody-bags')}
-                        >
-                          Crossbody Bags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('clutches')}
-                        >
-                          Clutches
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Ethnic Sets Section */}
-                    <div className='px-6 py-4 border-b border-gray-100'>
-                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>ETHNIC SETS</h3>
-                      <div className='space-y-2'>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('Ethnic Sets')}
-                        >
-                          View All
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Accessories Section */}
-                    <div className='px-6 py-4 border-b border-gray-100'>
-                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>💍 ACCESSORIES</h3>
-                      <div className='space-y-2'>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('Scarves & Stoles')}
-                        >
-                          Scarves & Stoles
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('Potli Bags')}
-                        >
-                          Potli Bags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('Dupattas & Stoles')}
-                        >
-                          Dupattas & Stoles
-                        </button>
-                      </div>
+                      ))}
                     </div>
 
 
@@ -284,9 +166,9 @@ function Nav() {
             </button>
             <button
               className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-              onClick={() => handleCategoryClick('💍 ACCESSORIES')}
+              onClick={() => handleCategoryClick('ACCESSORIES')}
             >
-              💍 ACCESSORIES
+              ACCESSORIES
             </button>
           </div>
 

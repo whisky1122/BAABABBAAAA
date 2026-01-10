@@ -20,7 +20,7 @@ function Home() {
   let heroData = [
     { text1: "AUTUMN COLLECTION 2025", text2: "Crafted Excellence" },
     { text1: "HERITAGE & INNOVATION", text2: "Timeless Luxury" },
-    { text1: "MAISON FROZELIA", text2: "Italian Craftsmanship" },
+    { text1: "ZOYA ELEGANCE", text2: "Italian Craftsmanship" },
     { text1: "EXCLUSIVE PIECES", text2: "For the Discerning" }
   ]
 
