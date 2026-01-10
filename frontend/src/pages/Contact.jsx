@@ -65,7 +65,7 @@ function Contact() {
                 <div className='space-y-3 text-lg font-light text-gray-700'>
                   <p>Tel: <span className='text-black'>+91-9454950104</span></p>
                   <p>Email: <span className='text-black'>zoyalegal@gmail.com</span></p>
-                  <p>Email: <span className='text-black'>GST Number- 09BMMPK9252R3ZW </span></p>
+                  <p>GST Number: <span className='text-black'>09BMMPK9252R3ZW </span></p>
                 </div>
               </div>
               
