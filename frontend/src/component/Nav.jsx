@@ -114,70 +114,26 @@ function Nav() {
                 MENU
               </button>
 
-              {/* Main Menu Side Drawer */}
-              <div className={`fixed inset-0 z-[100] transition-opacity duration-500 ${showMainMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-                {/* Backdrop Blur */}
-                <div
-                  className='absolute inset-0 bg-black/10 backdrop-blur-sm transition-opacity duration-500'
-                  onClick={() => setShowMainMenu(false)}
-                />
-
-                {/* Drawer Content */}
-                <div className={`absolute top-0 left-0 h-full w-full md:w-[450px] bg-white shadow-2xl transition-transform duration-500 ease-out flex flex-col ${showMainMenu ? 'translate-x-0' : '-translate-x-full'}`}>
-                  {/* Drawer Header */}
-                  <div className='flex items-center justify-between px-8 py-10 border-b border-gray-100'>
-                    <h2 className='text-xs font-normal uppercase tracking-[0.3em] text-gray-400'>Menu</h2>
-                    <button
-                      onClick={() => setShowMainMenu(false)}
-                      className='text-black hover:opacity-50 transition-opacity'
-                    >
-                      <MdClose className='w-6 h-6' />
-                    </button>
-                  </div>
-
-                  {/* Drawer Links */}
-                  <div className='flex-1 overflow-y-auto py-12 px-8 space-y-8'>
-                    {['WOMEN', 'MEN', 'HANDBAGS', 'ETHNIC SETS', 'ACCESSORIES'].map((item, index) => (
-                      <div
-                        key={item}
-                        className={`transition-all duration-700 delay-[${index * 100}ms] ${showMainMenu ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}
-                      >
+              {/* Main Menu Dropdown */}
+              {showMainMenu && (
+                <div className={`absolute bg-white border border-gray-200 shadow-lg z-50 w-80 transition-all duration-300 ${scrolled ? 'top-[72px]' : 'top-[120px]'
+                  }`}>
+                  <div className='py-4'>
+                    {/* Main Categories */}
+                    <div className='px-6 py-4 space-y-4'>
+                      {['WOMEN', 'MEN', 'HANDBAGS', 'ETHNIC SETS', 'ACCESSORIES'].map((item) => (
                         <button
-                          className='group flex items-end gap-4 text-left'
+                          key={item}
+                          className='block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
                           onClick={() => handleCategoryClick(item.toLowerCase() === 'ethnic sets' ? 'Ethnic Sets' : (item.toLowerCase() === 'accessories' ? 'ACCESSORIES' : item.toLowerCase()))}
                         >
-                          <span className='text-3xl md:text-5xl font-serif font-extralight tracking-tight text-black group-hover:italic transition-all duration-300'>
-                            {item}
-                          </span>
-                          <span className='mb-2 text-[10px] font-normal tracking-[0.2em] text-gray-300 group-hover:text-black transition-colors duration-300'>
-                            Explore
-                          </span>
+                          {item}
                         </button>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Drawer Footer */}
-                  <div className='p-8 border-t border-gray-100 bg-stone-50'>
-                    <div className='grid grid-cols-2 gap-8'>
-                      <div>
-                        <h4 className='text-[10px] font-bold uppercase tracking-widest text-black mb-4'>Client Services</h4>
-                        <ul className='space-y-2'>
-                          <li><button onClick={() => navigate('/contact')} className='text-xs text-gray-500 hover:text-black transition-colors uppercase tracking-widest'>Contact Us</button></li>
-                          <li><button onClick={() => navigate('/about')} className='text-xs text-gray-500 hover:text-black transition-colors uppercase tracking-widest'>About Us</button></li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className='text-[10px] font-bold uppercase tracking-widest text-black mb-4'>Personal Account</h4>
-                        <ul className='space-y-2'>
-                          <li><button onClick={() => { navigate('/login'); setShowMainMenu(false) }} className='text-xs text-gray-500 hover:text-black transition-colors uppercase tracking-widest'>Sign In</button></li>
-                          <li><button onClick={() => { navigate('/cart'); setShowMainMenu(false) }} className='text-xs text-gray-500 hover:text-black transition-colors uppercase tracking-widest'>Your Bag</button></li>
-                        </ul>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
           </div>

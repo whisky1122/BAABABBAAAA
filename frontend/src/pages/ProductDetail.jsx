@@ -43,21 +43,21 @@ function ProductDetail() {
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   return productData ? (
-    <div className='min-h-screen bg-white text-black overflow-x-hidden relative mt-[120px] transition-all duration-300 font-serif'>
+    <div className='min-h-screen bg-white text-black overflow-x-hidden relative top-[70px] font-serif'>
 
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-      <section className='py-12 md:py-16 px-6 bg-black text-white'>
+      <section className='py-16 px-6 bg-black text-white'>
         <div className='max-w-7xl mx-auto text-center'>
-          <span className='text-[10px] md:text-xs font-light tracking-[0.6em] uppercase text-gray-400 block mb-4'>
-            Exclusive Collection
+          <span className='text-xs font-light tracking-[0.6em] uppercase text-gray-300 block mb-4'>
+            Product Details
           </span>
-          <h1 className='text-2xl md:text-3xl lg:text-4xl font-extralight tracking-tight mb-6 leading-tight'>
+          <h1 className='text-3xl lg:text-4xl font-extralight tracking-tight mb-6'>
             {productData.name.toUpperCase()}
           </h1>
           <div className='flex items-center justify-center mb-6'>
-            <div className='w-6 h-px bg-white/30'></div>
-            <div className='w-1.5 h-1.5 bg-white/50 rounded-full mx-3'></div>
-            <div className='w-6 h-px bg-white/30'></div>
+            <div className='w-8 h-px bg-white'></div>
+            <div className='w-2 h-2 bg-white rounded-full mx-4'></div>
+            <div className='w-8 h-px bg-white'></div>
           </div>
         </div>
       </section>
@@ -148,8 +148,8 @@ function ProductDetail() {
                       key={index}
                       onClick={() => setSize(item)}
                       className={`px-6 py-3 border-2 font-medium transition-all duration-300 ${item === size
-                          ? 'bg-black text-white border-black'
-                          : 'bg-white text-black border-stone-300 hover:border-black'
+                        ? 'bg-black text-white border-black'
+                        : 'bg-white text-black border-stone-300 hover:border-black'
                         }`}
                     >
                       {item}

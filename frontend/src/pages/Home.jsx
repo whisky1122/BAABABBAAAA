@@ -76,7 +76,7 @@ function Home() {
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   return (
-    <div className={`min-h-screen bg-white text-black overflow-x-hidden relative mt-[120px] scrolled:mt-[72px] transition-all duration-300 gucci-site ${isLoaded ? 'loaded' : ''}`}>
+    <div className={`min-h-screen bg-white text-black overflow-x-hidden relative top-[70px] gucci-site ${isLoaded ? 'loaded' : ''}`}>
 
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik - GUCCI HERO SECTION */}
       <section className='relative w-full h-screen bg-white flex items-center justify-center overflow-hidden'>
@@ -621,31 +621,23 @@ function Home() {
         /* GUCCI Responsive Typography */
         @media (max-width: 768px) {
           .gucci-logo-text {
-            font-size: 10px;
+            font-size: 12px;
           }
           
           .gucci-hero-title {
-            font-size: clamp(2.5rem, 15vw, 5rem);
-            margin-bottom: 1rem;
+            font-size: clamp(2rem, 10vw, 4rem);
           }
           
           .gucci-hero-subtitle {
-            font-size: 0.875rem;
-            letter-spacing: 0.15em;
+            font-size: 1rem;
           }
           
           .gucci-section-title {
-            font-size: 1.75rem;
-            letter-spacing: 0.1em;
+            font-size: 2rem;
           }
           
           .gucci-content-box {
-            padding: 24px 16px;
-          }
-
-          .gucci-cta-button {
-            padding: 14px 36px;
-            font-size: 10px;
+            padding: 30px;
           }
         }
 
