@@ -98,7 +98,7 @@ function Collections() {
   }, [category, subCategory, search, showSearch])
 
   return (
-    <div className='min-h-screen bg-white text-black overflow-x-hidden relative top-[120px] gucci-collections'>
+    <div className='min-h-screen bg-white text-black overflow-x-hidden relative mt-[120px] scrolled:mt-[72px] transition-all duration-300 gucci-collections'>
 
       {/* GUCCI Header Section */}
       <section className='gucci-header-section'>
@@ -118,15 +118,20 @@ function Collections() {
         {/* GUCCI Filter Sidebar */}
         <div className={`gucci-sidebar ${showFilter ? 'open' : 'closed'} lg:open`}>
 
-          {/* Filter Header */}
+          {/* Filter Header - Mobile Toggle */}
           <div
-            className='gucci-filter-header'
+            className='lg:hidden p-4 border-b border-gray-100 flex items-center justify-between cursor-pointer active:bg-stone-50'
             onClick={() => setShowFilter(prev => !prev)}
           >
-            <h3 className='gucci-filter-title'>FILTERS</h3>
-            <div className='lg:hidden gucci-chevron'>
-              {showFilter ? <FaChevronDown /> : <FaChevronRight />}
+            <span className='text-xs font-bold tracking-widest uppercase'>Refine By</span>
+            <div className='flex items-center gap-2'>
+              <span className='text-[10px] text-gray-400 uppercase tracking-widest'>Filters</span>
+              <FaChevronDown className={`w-3 h-3 transition-transform duration-300 ${showFilter ? 'rotate-180' : ''}`} />
             </div>
+          </div>
+
+          <div className='hidden lg:block p-8 border-b border-gray-100'>
+            <h3 className='text-sm font-bold tracking-[0.3em] uppercase'>Filters</h3>
           </div>
 
           {/* Filter Content */}

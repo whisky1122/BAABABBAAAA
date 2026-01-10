@@ -43,23 +43,21 @@ function ProductDetail() {
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   return productData ? (
-    <div className='min-h-screen bg-white text-black overflow-x-hidden relative top-[70px] font-serif'>
-      
+    <div className='min-h-screen bg-white text-black overflow-x-hidden relative mt-[120px] transition-all duration-300 font-serif'>
+
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-      <section className='py-16 px-6 bg-black text-white'>
+      <section className='py-12 md:py-16 px-6 bg-black text-white'>
         <div className='max-w-7xl mx-auto text-center'>
-          <span className='text-xs font-light tracking-[0.6em] uppercase text-gray-300 block mb-4'>
-            Product Details
+          <span className='text-[10px] md:text-xs font-light tracking-[0.6em] uppercase text-gray-400 block mb-4'>
+            Exclusive Collection
           </span>
-          {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-          <h1 className='text-3xl lg:text-4xl font-extralight tracking-tight mb-6'>
+          <h1 className='text-2xl md:text-3xl lg:text-4xl font-extralight tracking-tight mb-6 leading-tight'>
             {productData.name.toUpperCase()}
           </h1>
-          {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='flex items-center justify-center mb-6'>
-            <div className='w-8 h-px bg-white'></div>
-            <div className='w-2 h-2 bg-white rounded-full mx-4'></div>
-            <div className='w-8 h-px bg-white'></div>
+            <div className='w-6 h-px bg-white/30'></div>
+            <div className='w-1.5 h-1.5 bg-white/50 rounded-full mx-3'></div>
+            <div className='w-6 h-px bg-white/30'></div>
           </div>
         </div>
       </section>
@@ -68,14 +66,14 @@ function ProductDetail() {
       <section className='py-20 px-6 bg-white'>
         <div className='max-w-7xl mx-auto'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-16'>
-            
+
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <div className='space-y-6'>
-              
+
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div className='bg-stone-50 border border-stone-200 rounded-lg overflow-hidden aspect-square'>
-                <img 
-                  src={image} 
+                <img
+                  src={image}
                   alt={productData.name}
                   className='w-full h-full object-cover hover:scale-105 transition-transform duration-500'
                 />
@@ -87,13 +85,12 @@ function ProductDetail() {
                   <button
                     key={index}
                     onClick={() => setImage(img)}
-                    className={`w-20 h-20 bg-stone-100 border-2 rounded-lg overflow-hidden transition-all duration-300 ${
-                      image === img ? 'border-black' : 'border-stone-300 hover:border-gray-400'
-                    }`}
+                    className={`w-20 h-20 bg-stone-100 border-2 rounded-lg overflow-hidden transition-all duration-300 ${image === img ? 'border-black' : 'border-stone-300 hover:border-gray-400'
+                      }`}
                   >
                     {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                    <img 
-                      src={img} 
+                    <img
+                      src={img}
                       alt={`Product view ${index + 1}`}
                       className='w-full h-full object-cover'
                     />
@@ -104,16 +101,16 @@ function ProductDetail() {
 
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
             <div className='space-y-8'>
-              
+
               {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
               <div>
                 <h2 className='text-3xl font-light text-black mb-4 tracking-wide uppercase'>
                   {productData.name}
                 </h2>
-                
+
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
                 <div className='flex items-center gap-2 mb-4'>
-                  {[1,2,3,4].map(star => (
+                  {[1, 2, 3, 4].map(star => (
                     <FaStar key={star} className='text-yellow-500 w-5 h-5' />
                   ))}
                   <FaStarHalfAlt className='text-yellow-500 w-5 h-5' />
@@ -150,11 +147,10 @@ function ProductDetail() {
                     <button
                       key={index}
                       onClick={() => setSize(item)}
-                      className={`px-6 py-3 border-2 font-medium transition-all duration-300 ${
-                        item === size 
-                          ? 'bg-black text-white border-black' 
+                      className={`px-6 py-3 border-2 font-medium transition-all duration-300 ${item === size
+                          ? 'bg-black text-white border-black'
                           : 'bg-white text-black border-stone-300 hover:border-black'
-                      }`}
+                        }`}
                     >
                       {item}
                     </button>
@@ -213,7 +209,7 @@ function ProductDetail() {
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
       <section className='py-16 px-6 bg-stone-50 border-t border-stone-200'>
         <div className='max-w-7xl mx-auto'>
-          
+
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='text-center mb-12'>
             <h3 className='text-2xl font-light text-black mb-4 tracking-wide uppercase'>
@@ -230,9 +226,9 @@ function ProductDetail() {
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='bg-white border border-stone-200 rounded-lg p-8 max-w-4xl mx-auto'>
             <p className='text-gray-700 font-light leading-relaxed text-lg text-center'>
-              Upgrade your wardrobe with this stylish slim-fit cotton shirt, available now on ZOYA ELEGANCE. 
-              Crafted from breathable, high-quality fabric, it offers all-day comfort and effortless style. 
-              Easy to maintain and perfect for any setting, this shirt is a must-have essential for those 
+              Upgrade your wardrobe with this stylish slim-fit cotton shirt, available now on ZOYA ELEGANCE.
+              Crafted from breathable, high-quality fabric, it offers all-day comfort and effortless style.
+              Easy to maintain and perfect for any setting, this shirt is a must-have essential for those
               who value both fashion and function.
             </p>
           </div>
@@ -240,9 +236,9 @@ function ProductDetail() {
       </section>
 
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-      <RelatedProduct 
-        category={productData.category} 
-        subCategory={productData.subCategory} 
+      <RelatedProduct
+        category={productData.category}
+        subCategory={productData.subCategory}
         currentProductId={productData._id}
       />
     </div>

@@ -18,7 +18,7 @@ function Home() {
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   let heroData = [
-    { text1: "AUTUMN COLLECTION 2025", text2: "Crafted Excellence" },
+    { text1: "AUTUMN COLLECTION 2026", text2: "Crafted Excellence" },
     { text1: "HERITAGE & INNOVATION", text2: "Timeless Luxury" },
     { text1: "ZOYA ELEGANCE", text2: "Italian Craftsmanship" },
     { text1: "EXCLUSIVE PIECES", text2: "For the Discerning" }
@@ -76,7 +76,7 @@ function Home() {
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   return (
-    <div className={`min-h-screen bg-white text-black overflow-x-hidden relative top-[70px] gucci-site ${isLoaded ? 'loaded' : ''}`}>
+    <div className={`min-h-screen bg-white text-black overflow-x-hidden relative mt-[120px] scrolled:mt-[72px] transition-all duration-300 gucci-site ${isLoaded ? 'loaded' : ''}`}>
 
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik - GUCCI HERO SECTION */}
       <section className='relative w-full h-screen bg-white flex items-center justify-center overflow-hidden'>
@@ -621,23 +621,31 @@ function Home() {
         /* GUCCI Responsive Typography */
         @media (max-width: 768px) {
           .gucci-logo-text {
-            font-size: 12px;
+            font-size: 10px;
           }
           
           .gucci-hero-title {
-            font-size: clamp(2rem, 10vw, 4rem);
+            font-size: clamp(2.5rem, 15vw, 5rem);
+            margin-bottom: 1rem;
           }
           
           .gucci-hero-subtitle {
-            font-size: 1rem;
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
           }
           
           .gucci-section-title {
-            font-size: 2rem;
+            font-size: 1.75rem;
+            letter-spacing: 0.1em;
           }
           
           .gucci-content-box {
-            padding: 30px;
+            padding: 24px 16px;
+          }
+
+          .gucci-cta-button {
+            padding: 14px 36px;
+            font-size: 10px;
           }
         }
 
