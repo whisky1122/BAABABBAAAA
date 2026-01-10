@@ -120,100 +120,56 @@ function Nav() {
                   }`}>
                   <div className='py-4'>
 
-                    {/* Women Section */}
+                    {/* TopWear Section */}
                     <div className='px-6 py-4 border-b border-gray-100'>
-                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>WOMEN</h3>
+                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>TOPWEAR</h3>
                       <div className='space-y-2'>
                         <button
                           className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('women-ready-to-wear')}
+                          onClick={() => handleCategoryClick('Chikankari Kurtis')}
                         >
-                          Ready-To-Wear
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('women-handbags')}
-                        >
-                          Handbags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('women-shoes')}
-                        >
-                          Shoes
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('women-accessories')}
-                        >
-                          Accessories
+                          Chikankari Kurtis
                         </button>
                       </div>
                     </div>
 
-                    {/* Men Section */}
+                    {/* BottomWear Section */}
                     <div className='px-6 py-4 border-b border-gray-100'>
-                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>MEN</h3>
+                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>BOTTOMWEAR</h3>
                       <div className='space-y-2'>
                         <button
                           className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('men-ready-to-wear')}
+                          onClick={() => handleCategoryClick('Palazzo')}
                         >
-                          Ready-To-Wear
+                          Palazzo
                         </button>
                         <button
                           className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('men-bags')}
+                          onClick={() => handleCategoryClick('Pants')}
                         >
-                          Bags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('men-shoes')}
-                        >
-                          Shoes
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('men-accessories')}
-                        >
-                          Accessories
+                          Pants
                         </button>
                       </div>
                     </div>
 
-                    {/* Handbags Section */}
+                    {/* Ethnic Sets Section */}
                     <div className='px-6 py-4 border-b border-gray-100'>
-                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>HANDBAGS</h3>
+                      <h3 className='text-sm font-normal uppercase tracking-wide text-black mb-3'>ETHNIC SETS</h3>
                       <div className='space-y-2'>
                         <button
                           className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('shoulder-bags')}
+                          onClick={() => handleCategoryClick('Chikankari Kurta + Pant')}
                         >
-                          Shoulder Bags
+                          Chikankari Kurta + Pant
                         </button>
                         <button
                           className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('top-handle-bags')}
+                          onClick={() => handleCategoryClick('Chikankari Kurta + Palazzo')}
                         >
-                          Top Handle Bags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('crossbody-bags')}
-                        >
-                          Crossbody Bags
-                        </button>
-                        <button
-                          className='block text-sm text-gray-600 hover:text-black transition-colors duration-200'
-                          onClick={() => handleCategoryClick('clutches')}
-                        >
-                          Clutches
+                          Chikankari Kurta + Palazzo
                         </button>
                       </div>
                     </div>
-
-
                   </div>
                 </div>
               )}
@@ -222,21 +178,21 @@ function Nav() {
             {/* Direct Category Links */}
             <button
               className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-              onClick={() => handleCategoryClick('women')}
+              onClick={() => handleCategoryClick('TopWear')}
             >
-              WOMEN
+              TOPWEAR
             </button>
             <button
               className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-              onClick={() => handleCategoryClick('men')}
+              onClick={() => handleCategoryClick('BottomWear')}
             >
-              MEN
+              BOTTOMWEAR
             </button>
             <button
               className='hidden lg:block text-sm font-normal uppercase tracking-wide text-black hover:opacity-60 transition-opacity duration-200'
-              onClick={() => handleCategoryClick('handbags')}
+              onClick={() => handleCategoryClick('Ethnic Sets')}
             >
-              HANDBAGS
+              ETHNIC SETS
             </button>
           </div>
 
