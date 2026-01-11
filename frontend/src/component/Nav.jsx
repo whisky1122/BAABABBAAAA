@@ -126,7 +126,7 @@ function Nav() {
               <div className={`absolute top-full left-0 mt-4 bg-white border border-stone-100 shadow-xl z-50 w-64 md:w-80 transition-all duration-300 origin-top-left transform ${showMainMenu
                 ? 'opacity-100 scale-100 translate-y-0'
                 : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
-                }`}>
+                } max-h-[calc(100vh-200px)] overflow-y-auto scrollbar-hide`}>
 
                 <div className="absolute top-0 left-6 w-3 h-3 bg-white border-t border-l border-stone-100 transform -translate-y-1/2 rotate-45"></div>
 
@@ -229,7 +229,7 @@ function Nav() {
 
       {/* PROFESSIONAL Profile Menu */}
       {showProfile && (
-        <div className={`fixed right-6 lg:right-12 mt-4 bg-white border border-stone-100 shadow-2xl z-50 transition-all duration-300 origin-top-right transform menu-container ${scrolled ? 'top-[70px]' : 'top-[100px]'} animate-in fade-in slide-in-from-top-2 w-80 md:w-96`}>
+        <div className={`fixed right-6 lg:right-12 mt-4 bg-white border border-stone-100 shadow-2xl z-50 transition-all duration-300 origin-top-right transform menu-container ${scrolled ? 'top-[70px]' : 'top-[100px]'} animate-in fade-in slide-in-from-top-2 w-80 md:w-96 max-h-[80vh] overflow-y-auto scrollbar-hide`}>
           <div className="absolute top-0 right-6 w-3 h-3 bg-white border-t border-l border-stone-100 transform -translate-y-1/2 rotate-45"></div>
 
           {userData ? (
@@ -417,6 +417,14 @@ function Nav() {
         
         button {
            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
       `}</style>
     </>
