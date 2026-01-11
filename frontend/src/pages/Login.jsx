@@ -14,19 +14,36 @@ import Loading from '../component/Loading'
 // Sold Copy By Eliteblaze , dev: Prayag kaushik
 function Login() {
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
+  // Sold Copy By Eliteblaze , dev: Prayag kaushik
   const [show, setShow] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const { serverUrl } = useContext(authDataContext)
   const { getCurrentUser, setUserData } = useContext(userDataContext)
   const [loading, setLoading] = useState(false)
+  const [loadingMessage, setLoadingMessage] = useState("") // New state for detailed message
   const navigate = useNavigate()
+
+  // Warm up the server when component mounts
+  React.useEffect(() => {
+    const warmUpServer = async () => {
+      try {
+        // Simple ping to wake up the server
+        await axios.get(serverUrl + '/api/product/list');
+      } catch (error) {
+        // Ignore errors, strictly for warming up
+        console.log("Server warm-up ping sent");
+      }
+    }
+    warmUpServer();
+  }, [serverUrl]);
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   const handleLogin = async (e) => {
     // Sold Copy By Eliteblaze , dev: Prayag kaushik
     e.preventDefault()
     setLoading(true)
+    setLoadingMessage("Signing in...")
     try {
       // Sold Copy By Eliteblaze , dev: Prayag kaushik
       const result = await axios.post(serverUrl + '/api/auth/login', {
@@ -37,31 +54,50 @@ function Login() {
       navigate("/")
     } catch (error) {
       console.log(error)
+      const errorMessage = error.response?.data?.message || "Login failed"
+      // You might want to show a toast here instead of silent failure
+      alert(errorMessage)
     } finally {
       setLoading(false)
+      setLoadingMessage("")
     }
   }
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   const googlelogin = async () => {
     try {
+      setLoading(true)
+      setLoadingMessage("Authenticating with Google...")
+
       console.log("Starting Google Login...");
       const response = await signInWithPopup(auth, provider);
       const user = response.user;
+
+      setLoadingMessage("Connecting to secure server...")
+      // Set a timeout to update message if it takes too long (cold start)
+      const timeoutId = setTimeout(() => {
+        setLoadingMessage("Waking up secure server... this may take a moment")
+      }, 3000)
+
       console.log("Firebase User:", user);
       const name = user.displayName;
       const email = user.email;
 
       const result = await axios.post(serverUrl + "/api/auth/googlelogin", { name, email }, { withCredentials: true });
+
+      clearTimeout(timeoutId)
       console.log("Backend Response:", result.data);
+
       if (result.data) {
+        setLoadingMessage("Login successful! Redirecting...")
         setUserData(result.data)
         console.log("Navigating to home...");
         navigate("/");
       }
     } catch (error) {
       console.error("Google Login Error:", error);
-      // Removed alert for cleaner UX, error is logged
+      setLoading(false)
+      setLoadingMessage("")
     }
   }
 
@@ -110,10 +146,20 @@ function Login() {
             <button
               type="button"
               onClick={googlelogin}
-              className='w-full h-12 bg-white border border-stone-300 text-black flex items-center justify-center gap-3 hover:bg-stone-50 transition-colors duration-300 font-medium'
+              disabled={loading}
+              className='w-full h-12 bg-white border border-stone-300 text-black flex items-center justify-center gap-3 hover:bg-stone-50 transition-colors duration-300 font-medium disabled:opacity-70 disabled:cursor-not-allowed'
             >
-              <img src={google} alt="Google" className='w-5 h-5' />
-              Continue with Google
+              {loading && loadingMessage.includes("Google") || loadingMessage.includes("server") ? (
+                <div className='flex items-center gap-2'>
+                  <Loading />
+                  <span className='text-sm'>{loadingMessage}</span>
+                </div>
+              ) : (
+                <>
+                  <img src={google} alt="Google" className='w-5 h-5' />
+                  Continue with Google
+                </>
+              )}
             </button>
 
             {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
@@ -176,10 +222,10 @@ function Login() {
                 className='w-full h-12 bg-black text-white hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300 font-medium uppercase tracking-wide'
               >
                 {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-                {loading ? (
+                {loading && !loadingMessage.includes("Google") && !loadingMessage.includes("server") ? (
                   <div className='flex items-center justify-center gap-2'>
                     <Loading />
-                    <span>Signing in...</span>
+                    <span>{loadingMessage || "Signing in..."}</span>
                   </div>
                 ) : (
                   'Sign In'
