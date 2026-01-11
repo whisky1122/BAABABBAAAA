@@ -301,6 +301,8 @@ function Add() {
                     <option value="Men">Men</option>
                     <option value="Women">Women</option>
                     <option value="Ethnic Sets">Ethnic Sets</option>
+                    <option value="Handbags">Handbags</option>
+                    <option value="Accessories">Accessories</option>
                   </select>
                 </div>
 
