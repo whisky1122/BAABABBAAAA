@@ -55,6 +55,8 @@ function Nav() {
 
   // Handle category navigation
   const handleCategoryClick = (category) => {
+    setSearch('') // Reset search effectively
+    setShowSearch(false)
     navigate('/collection', { state: { category: category } })
     setShowMainMenu(false)
   }

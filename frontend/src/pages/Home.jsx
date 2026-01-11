@@ -1,17 +1,19 @@
 // Sold Copy By Eliteblaze , dev: Prayag kaushik
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Hero from '../component/Hero'
 import Product from './Product'
 import BestSeller from '../component/BestSeller'
 import OurPolicy from '../component/OurPolicy'
 import Footer from '../component/Footer'
+import { shopDataContext } from '../context/ShopContext'
 
 
 // Sold Copy By Eliteblaze , dev: Prayag kaushik
 function Home() {
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   const navigate = useNavigate()
+  const { setSearch, setShowSearch } = useContext(shopDataContext)
   const [scrollY, setScrollY] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
   const sectionsRef = useRef([])
@@ -71,6 +73,8 @@ function Home() {
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   const handleShopNow = () => {
+    setSearch('')
+    setShowSearch(false)
     navigate('/collection')
   }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from "../assets/logo.png"
 
 function Footer() {
@@ -21,9 +22,9 @@ function Footer() {
               Discover timeless luxury since 2024.
             </p>
             <div className='gucci-social-links'>
-              <a href="#" className='gucci-social-link'>INSTAGRAM</a>
-              <a href="#" className='gucci-social-link'>FACEBOOK</a>
-              <a href="#" className='gucci-social-link'>TWITTER</a>
+              <div className='gucci-social-link'>INSTAGRAM</div>
+              <div className='gucci-social-link'>FACEBOOK</div>
+              <div className='gucci-social-link'>TWITTER</div>
             </div>
           </div>
 
@@ -35,19 +36,16 @@ function Footer() {
             <div className='gucci-footer-divider'></div>
             <ul className='gucci-footer-links'>
               <li>
-                <a href="/" className='gucci-footer-link'>HOME</a>
+                <Link to="/" className='gucci-footer-link' onClick={() => window.scrollTo(0, 0)}>HOME</Link>
               </li>
               <li>
-                <a href="/about" className='gucci-footer-link'>ABOUT</a>
+                <Link to="/about" className='gucci-footer-link' onClick={() => window.scrollTo(0, 0)}>ABOUT</Link>
               </li>
               <li>
-                <a href="/collection" className='gucci-footer-link'>COLLECTIONS</a>
+                <Link to="/collection" className='gucci-footer-link' onClick={() => window.scrollTo(0, 0)}>COLLECTIONS</Link>
               </li>
               <li>
-                <a href="/contact" className='gucci-footer-link'>CONTACT</a>
-              </li>
-              <li>
-                <a href="/stores" className='gucci-footer-link'>STORES</a>
+                <Link to="/contact" className='gucci-footer-link' onClick={() => window.scrollTo(0, 0)}>CONTACT</Link>
               </li>
             </ul>
           </div>
@@ -60,19 +58,13 @@ function Footer() {
             <div className='gucci-footer-divider'></div>
             <ul className='gucci-footer-links'>
               <li>
-                <a href="/contact" className='gucci-footer-link'>CONTACT US</a>
+                <Link to="/contact" className='gucci-footer-link' onClick={() => window.scrollTo(0, 0)}>CONTACT US</Link>
               </li>
               <li>
-                <a href="/shipping" className='gucci-footer-link'>SHIPPING</a>
+                <Link to="/placeorder" className='gucci-footer-link' onClick={() => window.scrollTo(0, 0)}>SHIPPING</Link>
               </li>
               <li>
-                <a href="/returns" className='gucci-footer-link'>RETURNS</a>
-              </li>
-              <li>
-                <a href="/size-guide" className='gucci-footer-link'>SIZE GUIDE</a>
-              </li>
-              <li>
-                <a href="/care" className='gucci-footer-link'>CARE GUIDE</a>
+                <Link to="/placeorder" className='gucci-footer-link' onClick={() => window.scrollTo(0, 0)}>RETURNS</Link>
               </li>
             </ul>
           </div>
@@ -100,11 +92,11 @@ function Footer() {
               </p>
             </div>
             <div className='gucci-legal-links'>
-              <a href="/privacy" className='gucci-legal-link'>PRIVACY POLICY</a>
+              <Link to="/" className='gucci-legal-link'>PRIVACY POLICY</Link>
               <span className='gucci-separator'>|</span>
-              <a href="/terms" className='gucci-legal-link'>TERMS OF SERVICE</a>
+              <Link to="/" className='gucci-legal-link'>TERMS OF SERVICE</Link>
               <span className='gucci-separator'>|</span>
-              <a href="/cookies" className='gucci-legal-link'>COOKIES</a>
+              <Link to="/" className='gucci-legal-link'>COOKIES</Link>
             </div>
           </div>
         </div>
