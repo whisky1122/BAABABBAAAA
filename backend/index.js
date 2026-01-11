@@ -27,8 +27,19 @@ app.use("/api/product", productRoutes)
 app.use("/api/cart", cartRoutes)
 app.use("/api/order", orderRoutes)
 
+import path from "path"
+import { fileURLToPath } from "url"
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+// Serve Static Frontend
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Catch-all route for SPA
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
 
 const startServer = async () => {
   try {
