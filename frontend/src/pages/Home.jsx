@@ -20,9 +20,9 @@ function Home() {
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   let heroData = [
-    { text1: "AUTUMN COLLECTION 2026", text2: "Crafted Excellence" },
-    { text1: "HERITAGE & INNOVATION", text2: "Timeless Luxury" },
-    { text1: "ZOYA ELEGANCE", text2: "Italian Craftsmanship" },
+    { text1: "LUCKNOW COLLECTION 2026", text2: "Crafted Excellence" },
+    { text1: "LUCKNOW & INNOVATION", text2: "Timeless Luxury" },
+    { text1: "ZOYA ELEGANCE", text2: "Luckow Chicken Craftsmanship" },
     { text1: "EXCLUSIVE PIECES", text2: "For the Discerning" }
   ]
 
