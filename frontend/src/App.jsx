@@ -15,6 +15,7 @@ import PlaceOrder from './pages/PlaceOrder'
 import Order from './pages/Order'
 import { ToastContainer } from 'react-toastify';
 import NotFound from './pages/NotFound'
+import RefundPolicy from './pages/RefundPolicy'
 
 function App() {
   let { userData } = useContext(userDataContext)
@@ -59,6 +60,9 @@ function App() {
           element={userData ? <PlaceOrder /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
         <Route path='/order'
           element={userData ? <Order /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
+
+        <Route path='/refund-policy'
+          element={userData ? <RefundPolicy /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
 
         {/* Failsafe for Render Redirects */}
         <Route path='/index.html' element={<Navigate to="/" replace />} />

@@ -134,14 +134,29 @@ function Nav() {
 
                 <div className='py-6 px-2'>
                   {/* Main Categories */}
+                  {/* Main Categories */}
                   <div className='space-y-1'>
-                    {['WOMEN', 'MEN', 'HANDBAGS', 'ETHNIC SETS', 'ACCESSORIES'].map((item) => (
+                    {[
+                      { label: 'REFUND & RETURN POLICY', action: () => navigate('/refund-policy') }
+                    ].map((item) => (
                       <button
-                        key={item}
+                        key={item.label}
                         className='w-full text-left px-8 py-3 text-sm font-light uppercase tracking-[0.1em] text-gray-800 hover:text-black hover:bg-stone-50 transition-all duration-300 border-l-2 border-transparent hover:border-black'
-                        onClick={() => handleCategoryClick(item.toLowerCase() === 'ethnic sets' ? 'Ethnic Sets' : (item.toLowerCase() === 'accessories' ? 'ACCESSORIES' : item.toLowerCase()))}
+                        onClick={() => {
+                          if (item.label === 'SHOP') {
+                            setSearch('')
+                            setShowSearch(false)
+                            navigate('/collection')
+                            setShowMainMenu(false)
+                          } else if (item.label === 'ACCESSORIES') {
+                            handleCategoryClick('ACCESSORIES')
+                          } else {
+                            item.action()
+                            setShowMainMenu(false)
+                          }
+                        }}
                       >
-                        {item}
+                        {item.label}
                       </button>
                     ))}
                   </div>
