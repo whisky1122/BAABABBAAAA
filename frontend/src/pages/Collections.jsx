@@ -18,8 +18,8 @@ function Collections() {
     if (location.state && location.state.category) {
       const cat = location.state.category
       // Check if it's a category or subCategory
-      const categories = ['Men', 'Women', 'Ethnic Sets']
-      const subCategories = ['TopWear', 'BottomWear', 'ACCESSORIES', 'Scarves & Stoles', 'Potli Bags', 'Dupattas & Stoles']
+      const categories = ['Men', 'Women', 'Ethnic Sets', 'Handbags', 'Accessories', 'Lucknow Chikankari Potli Bags', 'Lucknawi Chikan Dupattas, Stoles & Scarves', 'Lucknawi Roman Perfumes']
+      const subCategories = ['TopWear', 'BottomWear', 'ACCESSORIES', 'Scarves & Stoles', 'Potli Bags', 'Dupattas & Stoles', 'Dupattas', 'Stoles', 'Scarves', 'Perfumes']
 
       if (categories.includes(cat)) {
         setCategory([cat])
@@ -138,7 +138,7 @@ function Collections() {
                 CATEGORIES
               </h4>
               <div className='gucci-filter-options'>
-                {['Men', 'Women', 'Ethnic Sets'].map(cat => (
+                {['Men', 'Women', 'Ethnic Sets', 'Handbags', 'Accessories', 'Lucknow Chikankari Potli Bags', 'Lucknawi Chikan Dupattas, Stoles & Scarves', 'Lucknawi Roman Perfumes'].map(cat => (
                   <label key={cat} className='gucci-checkbox-label'>
                     <input
                       type='checkbox'
@@ -161,7 +161,7 @@ function Collections() {
                 TYPE
               </h4>
               <div className='gucci-filter-options'>
-                {['TopWear', 'BottomWear', 'ACCESSORIES', 'Scarves & Stoles', 'Potli Bags', 'Dupattas & Stoles'].map(sub => (
+                {['TopWear', 'BottomWear', 'ACCESSORIES', 'Scarves & Stoles', 'Potli Bags', 'Dupattas & Stoles', 'Dupattas', 'Stoles', 'Scarves', 'Perfumes'].map(sub => (
                   <label key={sub} className='gucci-checkbox-label'>
                     <input
                       type='checkbox'
