@@ -137,6 +137,11 @@ function Nav() {
                   {/* Main Categories */}
                   <div className='space-y-1'>
                     {[
+                      { label: 'HOME', action: () => navigate('/') },
+                      { label: 'SHOP', action: () => handleCategoryClick('All') }, // "All" or just reset search
+                      { label: 'ACCESSORIES', action: () => handleCategoryClick('ACCESSORIES') },
+                      { label: 'ABOUT US', action: () => navigate('/about') },
+                      { label: 'CONTACT US', action: () => navigate('/contact') },
                       { label: 'REFUND & RETURN POLICY', action: () => navigate('/refund-policy') }
                     ].map((item) => (
                       <button
