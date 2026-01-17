@@ -303,6 +303,9 @@ function Add() {
                     <option value="Ethnic Sets">Ethnic Sets</option>
                     <option value="Handbags">Handbags</option>
                     <option value="Accessories">Accessories</option>
+                    <option value="Lucknow Chikankari Potli Bags">Lucknow Chikankari Potli Bags</option>
+                    <option value="Lucknawi Chikan Dupattas, Stoles & Scarves">Lucknawi Chikan Dupattas, Stoles & Scarves</option>
+                    <option value="Lucknawi Roman Perfumes">Lucknawi Roman Perfumes</option>
                   </select>
                 </div>
 
@@ -323,6 +326,10 @@ function Add() {
                     <option value="Scarves & Stoles">Scarves & Stoles</option>
                     <option value="Potli Bags">Potli Bags</option>
                     <option value="Dupattas & Stoles">Dupattas & Stoles</option>
+                    <option value="Dupattas">Dupattas</option>
+                    <option value="Stoles">Stoles</option>
+                    <option value="Scarves">Scarves</option>
+                    <option value="Perfumes">Perfumes</option>
                   </select>
                 </div>
               </div>
